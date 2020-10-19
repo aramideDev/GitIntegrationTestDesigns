@@ -1,0 +1,3113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?resourcesPath .resources/eCommerceModule?>
+<?audioPath .resources/eCommerceModule?>
+<Design version="3.3.4" type="BOTH" locale="en-GB">
+	<Languages>
+		<Language>en-US</Language>
+		<Language>es-SP</Language>
+	</Languages>
+	<Variants>
+		<Variant>Female English</Variant>
+		<Variant>Female Spanish</Variant>
+	</Variants>
+	<LanguagesFilter>
+		<Language>en-US</Language>
+	</LanguagesFilter>
+	<VariantsFilter>
+		<Variant>Female English</Variant>
+	</VariantsFilter>
+	<States>
+		<State name="StartHere" type="AppInit" status="Review">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>Representative grammar is Universal (active on all DMs). From A8510, DTMF-0 goes to B8511. From Main Menu goes to DL agent. From sub-menus route to pharmacy, photo, DL as appropriate</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts />
+			<Grammars />
+			<Navigation>
+				<FromStates />
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Always</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="D8501_ParseInputParams" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="D8501_ParseInputParams" type="Decision" status="Review">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts />
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="StartHere" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>if Language == Spanish</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>if </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11562847150602" />
+							<Text> == ec_password_reset</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8580_PasswordResetModule" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>if </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11562847150602" />
+							<Text> == ec_photo</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="M8555_PhotoMenu" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>if </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11562847150602" />
+							<Text> == ec_photo_order</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="M8570_PhotoExistingOrder" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>if </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11562847150602" />
+							<Text> == ec_pharmacy</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="M8550_PharmacyMenu" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>if </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11562847150602" />
+							<Text> == ec_pharmacy_question, delete_vague, record_vague, privacy_act</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>if </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11562847134260" />
+							<Text> == PHOTO &amp;&amp; </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11562847150602" />
+							<Text> == order_status</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="M8570_PhotoExistingOrder" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>if </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11562847134260" />
+							<Text> == (MainCS or WelcomeIVR) &amp;&amp; </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11562847150602" />
+							<Text> == order_status</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="M8530_MainMenu" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>if </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11562847134260" />
+							<Text> == PHOTO</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="M8555_PhotoMenu" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>if </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11562847134260" />
+							<Text> == MainCS</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="D8700_CheckHelpLogin" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>if </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11562847134260" />
+							<Text> == ROTO</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>if </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11562847134260" />
+							<Text> == COPAY</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>if </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11562847134260" />
+							<Text> == CONTACTLENS</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>if </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11562847134260" />
+							<Text> == WILLCALLBACK</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Any other </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11562847134260" />
+							<Text> related to eComm</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="D8700_CheckHelpLogin" type="Decision" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>Help Login is a Seasonal flag. Default state is OFF. ECOM IVR does not work at store level</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts />
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="D8501_ParseInputParams" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Help Login = ON</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="M8710_AskHelpLogin" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Help Login = OFF</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="M8530_MainMenu" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="M8710_AskHelpLogin" type="Menu" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="M8710_AskHelpLogin" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Now, are you calling to get help with logging into your online account?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language></Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8710_AskHelpLogin" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry - just say yes or no.  </Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language></Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8710_AskHelpLogin" type="NM2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, let's use the keypad. If you're having problems logging into your online account and you need some help, press 1. If not, press 2.  </Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language></Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8710_AskHelpLogin" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Just say yes or no.  </Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language></Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8710_AskHelpLogin" type="NI2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text> Let's use the keypad. If you're having problems logging into your online account and you need some help, press 1. If not, press 2.  </Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language></Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars>
+				<Grammar title="yesno.grxml" rule="YESNO" type="VOICE" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="YES" samples="yes&#xD;&#xA;correct" notes="" />
+								<NewSlotValue value="NO" samples="no&#xD;&#xA;incorrect" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+				<Grammar title="yesno_dtmf.grxml" rule="YESNO" type="DTMF" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="YES" samples="dtmf-1" notes="" />
+								<NewSlotValue value="NO" samples="dtmf-2" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+			</Grammars>
+			<Navigation>
+				<FromStates>
+					<State ref="D8700_CheckHelpLogin" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Yes / DTMF - 1</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8580_PasswordResetModule" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>No / DTMF - 2</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="M8720_MainMenuNoHL" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8590_XferOnFailure" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="M8720_MainMenuNoHL" type="Menu" status="Review">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>If "Representative" send to Daily Living</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8720_MainMenuNoHL" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Okay- you can say Pharmacy, Photo, Other online orders - or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes>Else</DesignNotes>
+					<CoachingComments>Stress "photo" and "other"</CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8720_MainMenuNoHL" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, just say Pharmacy, Photo, Other online orders, or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8720_MainMenuNoHL" type="NM2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, let's use the keypad. If you're calling about a prescription or if you have any questions for the Pharmacy, press 1. For the Photo Department, press 2. For help with any other online orders, press 3. Or for help with something else, press 4. </Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments>Stress "other"</CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles>
+						<Style start="177" length="6" underlined="false" fontstyle="ITALIC" foregroundcolour="rgb(0,0,0)" />
+					</Styles>
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8720_MainMenuNoHL" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Just say Pharmacy, Photo, Other online orders, or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8720_MainMenuNoHL" type="NI2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Let's use the keypad. If you're calling about a prescription or if you have any questions for the Pharmacy, press 1. For the Photo Department, press 2. For help with any other online orders, press 3. Or for help with something else, press 4. </Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments>Stress "other"</CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles>
+						<Style start="170" length="6" underlined="false" fontstyle="ITALIC" foregroundcolour="rgb(0,0,0)" />
+					</Styles>
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars>
+				<Grammar title="mainmenu.grxml" rule="MAINMENU" type="VOICE" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="PHARMACY" samples="pharmacy" notes="" />
+								<NewSlotValue value="PHOTO" samples="photo" notes="" />
+								<NewSlotValue value="OTHER_ORDERS" samples="other online orders" notes="" />
+								<NewSlotValue value="HMWSE" samples="help me with something else" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+				<Grammar title="mainmenu_dtmf.grxml" rule="MAINMENU" type="DTMF" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="PHARMACY" samples="dtmf-1" notes="" />
+								<NewSlotValue value="PHOTO" samples="dtmf-2" notes="" />
+								<NewSlotValue value="OTHER_ORDERS" samples="dtmf-3" notes="" />
+								<NewSlotValue value="HMWSE" samples="dtmf-4" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+			</Grammars>
+			<Navigation>
+				<FromStates>
+					<State ref="M8710_AskHelpLogin" />
+					<State ref="S8580_PasswordResetModule" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Pharmacy /  DTMF-1</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="M8730_PharmacyMenuNoHL" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Photo /  DTMF-2</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="M8740_PhotoMenuNoHL" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Other online orders /  DTMF-3</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="M8750_OtherOrdersMenuNoHL" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Help me with something else /  DTMF-4</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="M8760_HMWSEMenuNoHL" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Representative / DTMF-0</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8590_XferOnFailure" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="M8530_MainMenu" type="Menu" status="Review">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>If "Representative" send to Daily Living</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8530_MainMenu" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Now - you can say Pharmacy, Photo, Other online orders - or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments>Stress "photo" and "other"</CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8530_MainMenu" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, just say Pharmacy, Photo, Other online orders, or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8530_MainMenu" type="NM2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, let's use the keypad. If you're calling about a prescription or if you have any questions for the Pharmacy, press 1. For the Photo Department, press 2. For help with any other online orders, press 3. Or for help with something else, press 4. </Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments>Stress "other"</CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles>
+						<Style start="177" length="6" underlined="false" fontstyle="ITALIC" foregroundcolour="rgb(0,0,0)" />
+					</Styles>
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8530_MainMenu" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Just say Pharmacy, Photo, Other online orders, or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8530_MainMenu" type="NI2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Let's use the keypad. If you're calling about a prescription or if you have any questions for the Pharmacy, press 1. For the Photo Department, press 2. For help with any other online orders, press 3. Or for help with something else, press 4. </Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments>Stress "other"</CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles>
+						<Style start="170" length="6" underlined="false" fontstyle="ITALIC" foregroundcolour="rgb(0,0,0)" />
+					</Styles>
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars>
+				<Grammar title="mainmenu.grxml" rule="MAINMENU" type="VOICE" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="PHARMACY" samples="pharmacy" notes="" />
+								<NewSlotValue value="PHOTO" samples="photo" notes="" />
+								<NewSlotValue value="OTHER_ORDERS" samples="other online orders" notes="" />
+								<NewSlotValue value="HMWSE" samples="help me with something else" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+				<Grammar title="mainmenu_dtmf.grxml" rule="MAINMENU" type="DTMF" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="PHARMACY" samples="dtmf-1" notes="" />
+								<NewSlotValue value="PHOTO" samples="dtmf-2" notes="" />
+								<NewSlotValue value="OTHER_ORDERS" samples="dtmf-3" notes="" />
+								<NewSlotValue value="HMWSE" samples="dtmf-4" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+			</Grammars>
+			<Navigation>
+				<FromStates>
+					<State ref="D8700_CheckHelpLogin" />
+					<State ref="D8501_ParseInputParams" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Pharmacy /  DTMF-1</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="M8550_PharmacyMenu" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Photo /  DTMF-2</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="M8555_PhotoMenu" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Other online orders /  DTMF-3</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="M8560_OtherOrdersMenu" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Help me with something else /  DTMF-4</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="M8565_HMWSEMenu" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Representative / DTMF-0</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8590_XferOnFailure" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="M8730_PharmacyMenuNoHL" type="Menu" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>If "Representative" send to Daily Living</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8730_PharmacyMenuNoHL" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>OK - you can say:  Refill a prescription, Prescription status Or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8730_PharmacyMenuNoHL" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, just say Refill a prescription, Prescription status Or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8730_PharmacyMenuNoHL" type="NM2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry - let's use the keypad. To refill a prescription, press 1. To check the status of a prescription, press 2. Or for Help with something else, press 3. </Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8730_PharmacyMenuNoHL" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Just say Refill a prescription, Prescription status Or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8730_PharmacyMenuNoHL" type="NI2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Let's use the keypad.  To refill a prescription, press 1. To check the status of a prescription, press 2. Or for Help with something else, press 3</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars>
+				<Grammar title="pharmacymenu.grxml" rule="PHARMACYMENUNOHL" type="VOICE" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="REFILL" samples="refill a prescription" notes="" />
+								<NewSlotValue value="PRESCRIPTION_STATUS" samples="prescription status" notes="" />
+								<NewSlotValue value="HMWSE" samples="help me with something else" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+				<Grammar title="pharmacymenu_dtmf.grxml" rule="PHARMACYMENUNOHL" type="DTMF" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="REFILL" samples="dtmf-1" notes="" />
+								<NewSlotValue value="PRESCRIPTION_STATUS" samples="dtmf-2" notes="" />
+								<NewSlotValue value="HMWSE" samples="dtmf-3" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+			</Grammars>
+			<Navigation>
+				<FromStates>
+					<State ref="M8720_MainMenuNoHL" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Refill a prescription / DTMF-1</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Prescription status / DTMF-2</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Help me with something else / DTMF-3</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8590_XferOnFailure" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="M8550_PharmacyMenu" type="Menu" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8550_PharmacyMenu" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>OK - you can say: Problems logging in; Refill a prescription, Prescription status Or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8550_PharmacyMenu" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, just say Problems logging in; Refill a prescription, Prescription status Or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8550_PharmacyMenu" type="NM2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry - let's use the keypad. For help with logging-in to your online account, or using our website, press 1. To refill a prescription, press 2. To check the status of a prescription, press 3. Or for Help with something else, press 4. </Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8550_PharmacyMenu" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Just say Problems logging in; Refill a prescription, Prescription status Or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8550_PharmacyMenu" type="NI2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Let's use the keypad. For  help with logging-in to your online account, or using our website, press 1. To refill a prescription, press 2. To check the status of a prescription, press 3. Or for Help with something else, press 4.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars>
+				<Grammar title="pharmacymenu.grxml" rule="PHARMACYMENU" type="VOICE" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="LOGIN_HELP" samples="problems logging in" notes="" />
+								<NewSlotValue value="REFILL" samples="refill a prescription" notes="" />
+								<NewSlotValue value="PRESCRIPTION_STATUS" samples="prescription status" notes="" />
+								<NewSlotValue value="HMWSE" samples="help me with something else" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+				<Grammar title="pharmacymenu_dtmf.grxml" rule="PHARMACYMENU" type="DTMF" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="LOGIN_HELP" samples="dtmf-1" notes="" />
+								<NewSlotValue value="REFILL" samples="dtmf-2" notes="" />
+								<NewSlotValue value="PRESCRIPTION_STATUS" samples="dtmf-3" notes="" />
+								<NewSlotValue value="HMWSE" samples="dtmf-4" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+			</Grammars>
+			<Navigation>
+				<FromStates>
+					<State ref="M8530_MainMenu" />
+					<State ref="D8501_ParseInputParams" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Problems logging in / DTMF-1</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8580_PasswordResetModule" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Refill a prescription / DTMF-2</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Prescription status / DTMF-3</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Help me with something else / DTMF-4</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8590_XferOnFailure" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="M8555_PhotoMenu" type="Menu" status="Review">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8555_PhotoMenu" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>OK - you can say Problems logging in, Order status, Or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8555_PhotoMenu" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, just say Problems logging in, Order status, Or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8555_PhotoMenu" type="NM2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry – let’s use the keypad. If you're having problems logging in, press 1. To check the status of an existing order, press 2. For anything else, press 3.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8555_PhotoMenu" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Just say Problems logging in, Order status, Or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8555_PhotoMenu" type="NI2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry – let’s use the keypad. If you're having problems logging in, press 1. To check the status of an existing order, press 2. For anything else, press 3.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars>
+				<Grammar title="photomenu.grxml" rule="PHOTOMENU" type="VOICE" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="LOGIN_HELP" samples="problems logging in" notes="" />
+								<NewSlotValue value="ORDER_STATUS " samples="order status" notes="" />
+								<NewSlotValue value="HMWSE" samples="help me with something else" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+				<Grammar title="photomenu_dtmf.grxml" rule="PHOTOMENU" type="DTMF" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="LOGIN_HELP" samples="dtmf-1" notes="" />
+								<NewSlotValue value="ORDER_STATUS " samples="dtmf-2" notes="" />
+								<NewSlotValue value="HMWSE" samples="dtmf-3" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+			</Grammars>
+			<Navigation>
+				<FromStates>
+					<State ref="M8530_MainMenu" />
+					<State ref="D8501_ParseInputParams" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Problems logging in / DTMF-1</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8580_PasswordResetModule" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text> Check the status of an existing order / DTMF-2</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="M8570_PhotoExistingOrder" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Help me with something else / DTMF-3</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8590_XferOnFailure" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="M8740_PhotoMenuNoHL" type="Menu" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8740_PhotoMenuNoHL" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>OK - you can say Order status, Or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8740_PhotoMenuNoHL" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, just say Order status, Or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8740_PhotoMenuNoHL" type="NM2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry – let’s use the keypad.  To check the status of an existing order, press 1. For anything else, press 2.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8740_PhotoMenuNoHL" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Just say  Order status, Or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8740_PhotoMenuNoHL" type="NI2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry – let’s use the keypad. To check the status of an existing order, press 1. For anything else, press 2.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars>
+				<Grammar title="photomenu.grxml" rule="PHOTOMENUNOHL" type="VOICE" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="ORDER_STATUS " samples="order status" notes="" />
+								<NewSlotValue value="HMWSE" samples="help me with something else" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+				<Grammar title="photomenu_dtmf.grxml" rule="PHOTOMENUNOHL" type="DTMF" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="ORDER_STATUS " samples="dtmf-1" notes="" />
+								<NewSlotValue value="HMWSE" samples="dtmf-2" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+			</Grammars>
+			<Navigation>
+				<FromStates>
+					<State ref="M8720_MainMenuNoHL" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text> Check the status of an existing order / DTMF-1</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="M8570_PhotoExistingOrder" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Help me with something else / DTMF-2</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8590_XferOnFailure" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="M8560_OtherOrdersMenu" type="Menu" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8560_OtherOrdersMenu" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>OK - you can say Problems logging in; Order status; Or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8560_OtherOrdersMenu" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, just say Problems logging in, Order status, Or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8560_OtherOrdersMenu" type="NM2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry – let’s use the keypad. If you're having problems logging in, press 1. To check the status of an existing order, press 2. For anything else, press 3.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8560_OtherOrdersMenu" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Just say Problems logging in, Order status, Or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8560_OtherOrdersMenu" type="NI2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry – let’s use the keypad. If you're having problems logging in, press 1. To check the status of an existing order, press 2. For anything else, press 3.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars>
+				<Grammar title="otherordersmenu.grxml" rule="OTHERORDERSMENU" type="VOICE" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="LOGIN_HELP" samples="problems logging in" notes="" />
+								<NewSlotValue value="ORDER_STATUS" samples="order status" notes="" />
+								<NewSlotValue value="HMWSE" samples="help me with something else" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+				<Grammar title="otherordersmenu_dtmf.grxml" rule="OTHERORDERSMENU" type="DTMF" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="LOGIN_HELP" samples="dtmf-1" notes="" />
+								<NewSlotValue value="ORDER_STATUS " samples="dtmf-2" notes="" />
+								<NewSlotValue value="HMWSE" samples="dtmf-3" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+			</Grammars>
+			<Navigation>
+				<FromStates>
+					<State ref="M8530_MainMenu" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Problems logging in / DTMF-1</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8580_PasswordResetModule" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Check the staus of an existing order / DTMF-2</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Help me with something else / DTMF-3</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8590_XferOnFailure" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="M8750_OtherOrdersMenuNoHL" type="Menu" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8750_OtherOrdersMenuNoHL" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>OK - you can say Order status; Or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8750_OtherOrdersMenuNoHL" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, just say  Order status, Or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8750_OtherOrdersMenuNoHL" type="NM2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry – let’s use the keypad. . To check the status of an existing order, press 1. For anything else, press 2.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8750_OtherOrdersMenuNoHL" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Just say  Order status, Or say Help me with something else.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8750_OtherOrdersMenuNoHL" type="NI2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry – let’s use the keypad. To check the status of an existing order, press 1. For anything else, press 2.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars>
+				<Grammar title="otherordersmenu.grxml" rule="OTHERORDERSMENUNOHL" type="VOICE" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="ORDER_STATUS" samples="order status" notes="" />
+								<NewSlotValue value="HMWSE" samples="help me with something else" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+				<Grammar title="otherordersmenu_dtmf.grxml" rule="OTHERORDERSMENUNOHL" type="DTMF" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="ORDER_STATUS " samples="dtmf-1" notes="" />
+								<NewSlotValue value="HMWSE" samples="dtmf-2" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+			</Grammars>
+			<Navigation>
+				<FromStates>
+					<State ref="M8720_MainMenuNoHL" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Check the staus of an existing order / DTMF-1</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Help me with something else / DTMF-2</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8590_XferOnFailure" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="M8565_HMWSEMenu" type="Menu" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8565_HMWSEMenu" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>OK - you can say Problems logging in; Balance rewards; Find a store or for any other questions, just say 
+representative and I'll get someone to help.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language></Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8565_HMWSEMenu" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, just say Problems logging in, Balance Rewards, Find a Store, or Representative.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8565_HMWSEMenu" type="NM2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry - let's use the keypad. If you're having problems logging in, press 1. For Balance Rewards, press 2. For help finding a store, press 3. Or to speak to a representative, press 4.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8565_HMWSEMenu" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Just say Problems logging in, Balance Rewards, Find a Store, or Representative.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8565_HMWSEMenu" type="NI2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Let's use the keypad. If you're having problems logging in, press 1. For Balance Rewards, press 2. For help finding a store, press 3. Or to speak to a representative, press 4.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars>
+				<Grammar title="hmwsemenu.grxml" rule="HMWSEMENU" type="VOICE" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="LOGIN_HELP" samples="problems logging in" notes="" />
+								<NewSlotValue value="BALANCE_REWARDS" samples="balance rewards" notes="" />
+								<NewSlotValue value="STORE_LOCATOR" samples="find a store" notes="" />
+								<NewSlotValue value="REPRESENTATIVE" samples="representative" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+				<Grammar title="hmwsemenu_dtmf.grxml" rule="HMWSEMENU" type="DTMF" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="LOGIN_HELP" samples="dtmf-1" notes="" />
+								<NewSlotValue value="BALANCE_REWARDS" samples="dtmf-2" notes="" />
+								<NewSlotValue value="STORE_LOCATOR" samples="dtmf-3" notes="" />
+								<NewSlotValue value="REPRESENTATIVE" samples="dtmf-4" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+			</Grammars>
+			<Navigation>
+				<FromStates>
+					<State ref="M8530_MainMenu" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Problems logging in / DTMF-1</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8580_PasswordResetModule" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Balance Rewards / DTMF-2</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8600_XferToBalanceRewardsIVR" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Find a Store / DTMF-3</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Representative / DTMF-4</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8590_XferOnFailure" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="M8760_HMWSEMenuNoHL" type="Menu" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8760_HMWSEMenuNoHL" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>OK - you can say Balance rewards; Find a store or for any other questions, just say 
+representative and I'll get someone to help."
+</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language></Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8760_HMWSEMenuNoHL" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, just say Balance Rewards, Find a Store, or Representative.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8760_HMWSEMenuNoHL" type="NM2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry - let's use the keypad. For Balance Rewards, press 1. For help finding a store, press 2. Or to speak to a representative, press 3.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8760_HMWSEMenuNoHL" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Just say Balance Rewards, Find a Store, or Representative.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8760_HMWSEMenuNoHL" type="NI2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Let's use the keypad. For Balance Rewards, press 1. For help finding a store, press 2. Or to speak to a representative, press 3.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars>
+				<Grammar title="hmwsemenu.grxml" rule="HMWSEMENUNOHL" type="VOICE" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="BALANCE_REWARDS" samples="balance rewards" notes="" />
+								<NewSlotValue value="STORE_LOCATOR" samples="find a store" notes="" />
+								<NewSlotValue value="REPRESENTATIVE" samples="representative" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+				<Grammar title="hmwsemenu_dtmf.grxml" rule="HMWSEMENUNOHL" type="DTMF" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="BALANCE_REWARDS" samples="dtmf-1" notes="" />
+								<NewSlotValue value="STORE_LOCATOR" samples="dtmf-2" notes="" />
+								<NewSlotValue value="REPRESENTATIVE" samples="dtmf-3" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+			</Grammars>
+			<Navigation>
+				<FromStates>
+					<State ref="M8720_MainMenuNoHL" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Balance Rewards / DTMF-1</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8600_XferToBalanceRewardsIVR" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Find a Store / DTMF-2</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Representative / DTMF-3</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8590_XferOnFailure" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="M8570_PhotoExistingOrder" type="Yes/No" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="M8570_PhotoExistingOrder" type="INI" additionalText="" level="A" freeText="" />
+					<TextContentList>
+						<Text>Sure – and is that for an in-store pick-up? [500ms pause]</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language></Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8570_PhotoExistingOrder" type="INI" additionalText="" level="B" freeText="" />
+					<TextContentList>
+						<Text>Just say yes or no.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language></Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8570_PhotoExistingOrder" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, would you like to pickup that order in-store?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language></Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8570_PhotoExistingOrder" type="NM2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, let's use the keypad. If that order is for pickup in-store, press 1. If not, press 2. </Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language></Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8570_PhotoExistingOrder" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Would you like to pickup that order in-store?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language></Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="M8570_PhotoExistingOrder" type="NI2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Let's use the keypad. If that order is for pickup in-store, press 1. If not, press 2. </Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language></Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars>
+				<Grammar title="photoexistingorder.grxml" rule="PHOTOEXISTINGORDER" type="VOICE" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="YES" samples="yes" notes="" />
+								<NewSlotValue value="NO" samples="no" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+				<Grammar title="photoexistingorder_dtmf.grxml" rule="PHOTOEXISTINGORDER" type="DTMF" locale="en-US">
+					<Description></Description>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Samples></Samples>
+					<Parameters />
+					<Slots>
+						<SlotElement name="MENU_CHOICE" notes="">
+							<SlotValues>
+								<NewSlotValue value="YES" samples="dtmf-1" notes="" />
+								<NewSlotValue value="NO" samples="dtmf-2" notes="" />
+							</SlotValues>
+						</SlotElement>
+					</Slots>
+				</Grammar>
+			</Grammars>
+			<Navigation>
+				<FromStates>
+					<State ref="M8555_PhotoMenu" />
+					<State ref="M8740_PhotoMenuNoHL" />
+					<State ref="D8501_ParseInputParams" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Yes / DTMF-1</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>No  / DTMF-2</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8590_XferOnFailure" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="S8580_PasswordResetModule" type="SubDialogue" status="Review">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>THIS IS A STATE WHICH CALLS THE MODULE &lt;ResetPWModule.vui&gt; THE CONDITIONS AND NEXT STATES REPRESENTS THE CONDITIONS RETURNED BY THAT MODULE AND THE RELEVANT STATES TO FOLLOW</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<StateParameters repository="https://designrepo.voxgenhosted.com:18080/svn/walgreens" relativePath="/Walgreens/Modules/ResetPWModule.vui" revision="2399">
+				<StateParameter id="state_parameter_11486744011339" targetId="design_parameter_11486743363811" name="ExitReason" notes="" type="OUTPUT" description="can be UserFailure ¦ BadEmail ¦ Transfer ¦ HMWSE" />
+			</StateParameters>
+			<Prompts />
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="M8550_PharmacyMenu" />
+					<State ref="M8710_AskHelpLogin" />
+					<State ref="M8555_PhotoMenu" />
+					<State ref="M8560_OtherOrdersMenu" />
+					<State ref="M8565_HMWSEMenu" />
+					<State ref="D8501_ParseInputParams" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>If </Text>
+							<Reference targetType="STATE_PARAMETER" targetId="state_parameter_11486744011339" />
+							<Text> == UserFailure</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8590_XferOnFailure" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>If [S8580_PasswordResetModule:ExitReason] == BadEmail</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8595_XferBadEmail" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>If </Text>
+							<Reference targetType="STATE_PARAMETER" targetId="state_parameter_11486744011339" />
+							<Text> == Transfer</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="S8585_XferToAgent" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>If </Text>
+							<Reference targetType="STATE_PARAMETER" targetId="state_parameter_11486744011339" />
+							<Text> == HMWSE &amp;&amp; </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11562847134260" />
+							<Text> == WelcomeIVR&#xD;
+&#xD;
+// Set </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11562847172370" />
+							<Text> = 'BackToMenu'</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="ExitModule" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Reference targetType="STATE_PARAMETER" targetId="state_parameter_11486744011339" />
+							<Text> == HMWSE &amp;&amp; Otherwise</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="M8720_MainMenuNoHL" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="S8595_XferBadEmail" type="Transfer" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>transfers to  Arise agents</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="S8595_XferBadEmail" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Looks like we’re having some trouble sending an email to your account. &#xD;
+Let me transfer you to someone who can help.&#xD;
+ Sometimes we record these calls for quality and training… &#xD;
+</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="S8580_PasswordResetModule" />
+				</FromStates>
+				<Conditions />
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="S8585_XferToAgent" type="Transfer" status="Review">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>All transfers to Agent are to Arise agents except for the ones coming from M8550_PharmacyMenu</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="S8585_XferToAgent" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Okay, permítame transferirle con un representante. A veces podemos grabar las llamadas para calidad. </Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="S8585_XferToAgent" type="INI" additionalText="Rep" level="" freeText="" />
+					<TextContentList>
+						<Text>Sure, I’m transferring you now.	Sometimes we record these calls for quality and training… </Text>
+					</TextContentList>
+					<DesignNotes>Use if caller asked for "representative"</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="S8585_XferToAgent" type="INI" additionalText="OK" level="" freeText="" />
+					<TextContentList>
+						<Text>OK, let me get someone who can help you. Sometimes we record these calls for quality and training… </Text>
+					</TextContentList>
+					<DesignNotes>Use if coming from PhotoExistingOrders</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="S8585_XferToAgent" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Let me get someone who can help you. Just so you know, sometimes we record these calls for quality and training.</Text>
+					</TextContentList>
+					<DesignNotes>All other cases</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="M8555_PhotoMenu" />
+					<State ref="M8560_OtherOrdersMenu" />
+					<State ref="M8565_HMWSEMenu" />
+					<State ref="M8730_PharmacyMenuNoHL" />
+					<State ref="M8570_PhotoExistingOrder" />
+					<State ref="M8550_PharmacyMenu" />
+					<State ref="M8740_PhotoMenuNoHL" />
+					<State ref="M8750_OtherOrdersMenuNoHL" />
+					<State ref="M8760_HMWSEMenuNoHL" />
+					<State ref="S8580_PasswordResetModule" />
+					<State ref="M8530_MainMenu" />
+					<State ref="M8720_MainMenuNoHL" />
+					<State ref="D8501_ParseInputParams" />
+				</FromStates>
+				<Conditions />
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="S8590_XferOnFailure" type="Transfer" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>All transfers to Agent are to Arise agents except for the ones coming from M8550_PharmacyMenu</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="S8590_XferOnFailure" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, let me transfer you to a representative who can help you. Sometimes we record these calls for quality and training… </Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="M8555_PhotoMenu" />
+					<State ref="M8720_MainMenuNoHL" />
+					<State ref="M8560_OtherOrdersMenu" />
+					<State ref="M8565_HMWSEMenu" />
+					<State ref="M8730_PharmacyMenuNoHL" />
+					<State ref="M8570_PhotoExistingOrder" />
+					<State ref="M8550_PharmacyMenu" />
+					<State ref="M8740_PhotoMenuNoHL" />
+					<State ref="M8750_OtherOrdersMenuNoHL" />
+					<State ref="M8760_HMWSEMenuNoHL" />
+					<State ref="M8710_AskHelpLogin" />
+					<State ref="M8530_MainMenu" />
+					<State ref="S8580_PasswordResetModule" />
+				</FromStates>
+				<Conditions />
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="S8600_XferToBalanceRewardsIVR" type="Transfer" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>Transfer call to the Balance Rewards IVR</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts />
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="M8565_HMWSEMenu" />
+					<State ref="M8760_HMWSEMenuNoHL" />
+				</FromStates>
+				<Conditions />
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="ExitModule" type="Custom" status="Draft">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts />
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="S8580_PasswordResetModule" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Return to calling application</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+	</States>
+	<DesignParameters>
+		<DesignParameter id="design_parameter_11562847134260" name="DNIS" type="INPUT" description="IVR that the caller dialled. Can be &quot;WelcomeIVR&quot;, &quot;PHOTO&quot;, &quot;MainCS&quot;, &quot;COPAY&quot;, &quot;ROTO&quot;, &quot;CONTACTLENS&quot;, &quot;WILLCALLBACK&quot;" />
+		<DesignParameter id="design_parameter_11562847150602" name="tag" type="INPUT" description="contains tag collected in WelcomeIVR OpenPrompt" />
+		<DesignParameter id="design_parameter_11562847172370" name="ExitReason" type="OUTPUT" description="Possible values: BackToMenu" />
+	</DesignParameters>
+	<VersionNotes>
+		<VersionNote changedStateName="D8501_ParseInputParams" user="mboothroyd" date="06.11.2019">
+			<Comment>NLIVR-1762 CCPA&#xD;
+Added "delete_vague, record_vague, privacy_act" to condition "if [tag] == ec_pharmacy_question"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="StartHere" user="dite" date="15.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): all calls go through the WelcomeIVR, so removed existing condition to handle calls coming directly into eCommerce</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="D8500_DNIS_LookUp" user="dite" date="15.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): deleted state</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="S8585_XferToAgent" user="dite" date="15.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): Removed S8585_XferToAgent_Spanish_INI from English localization, moved into Spanish (renamed as S8585_XferToAgent_INI), without any prompt condition</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="D8501_ParseInputParams" user="dite" date="15.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): &#xD;
+1) changed eC_* tags to ec_*&#xD;
+2) updated existing eComm-related DNIS identifiers&#xD;
+3) added handling for remaining eComm-related DNIS identifiers (ROTO, COPAY, etc)&#xD;
+4) added condition "tag==order_status when dialling WelcomeIVR goes to MainMenu"&#xD;
+5) added condition "if Language == Spanish"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="A8510_Welcome" user="dite" date="15.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): deleted state</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="D8515_ImmediateTransferSwitch" user="dite" date="15.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): deleted state</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="B8511_IntentCaptureSwitch" user="dite" date="11.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): deleted state</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="D8501_ParseInputParams" user="dite" date="11.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): new state</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="D8500_DNIS_LookUp" user="dite" date="11.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): removed first two conditions for Intent Capture, change the only remaning from "Otherwise" to "Always"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="A8510_Welcome" user="dite" date="11.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): removed _Photo prompt since that's done in the WelcomeIVR now</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="D8515_ImmediateTransferSwitch" user="dite" date="11.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): &#xD;
+1) removed conditions for "ePhoto" and "Otherwise"&#xD;
+&#xD;
+2) renamed and renumbered state (was D8505_GreetingSwitch) since it didn't make any sense&#xD;
+</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8520_OpenPrompt" user="dite" date="11.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): deleted state</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8720_MainMenuNoHL" user="dite" date="11.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): removed prompt used from open prompt (since that state has been deleted)</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8530_MainMenu" user="dite" date="11.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): removed prompt used from open prompt (since that state has been deleted)</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8555_PhotoMenu" user="dite" date="11.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): removed prompt used from open prompt (since that state has been deleted)</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="D8500_DNIS_LookUp" user="mboothroyd" date="12.06.2019">
+			<Comment>NLIVR-1131 eCommerce Intent Capture&#xD;
+Added new conditions for Intent Capture coming from WelcomeIVR</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8555_PhotoMenu" user="mboothroyd" date="12.06.2019">
+			<Comment>NLIVR-1131 eCommerce Intent Capture&#xD;
+Added new prompt _IntentCapture_INI</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8530_MainMenu" user="mboothroyd" date="12.06.2019">
+			<Comment>NLIVR-1131 eCommerce Intent Capture&#xD;
+Added new prompt _IntentCapture_INI</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="A8510_Welcome" user="mboothroyd" date="09.04.2018">
+			<Comment>Updated A8510_Welcome_SelectLang_INI_B - added "continuar en"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="D8500_DNIS_LookUp" user="jcbryak3" date="05.04.2018">
+			<Comment>Updated Note to say:&#xD;
+&#xD;
+Get the attributes for the TFN. &#xD;
+==SERVICE== &#xD;
+&#xD;
+Avaya IC data Lookup (httpvox.iccmd&amp;command=getedu)&#xD;
+==SEND== &#xD;
+&#xD;
+ eduId(common identifier of the call) &#xD;
+&#xD;
+==RETURN== &#xD;
+WHS_CallerType&#xD;
+primary_dnis&#xD;
+WHS_IVRExitDescription&#xD;
+ani&#xD;
+WHS_DNISType&#xD;
+returncode&#xD;
+WHS_DNISLOB&#xD;
+WHS_UseDNISLanguage&#xD;
+CSat&#xD;
+WHS_DNISPurpose&#xD;
+WHS_DNISName&#xD;
+WHS_LanguageInd&#xD;
+</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="A8510_Welcome" user="jcbryak3" date="05.04.2018">
+			<Comment>Updated prompt conditions to specify DNIS purpose:&#xD;
+&#xD;
+WHS_DNISPurpose=PHOTO &#xD;
+WHS_DNISPurpose=COPAY &#xD;
+WHS_DNISPurpose=ROTO &#xD;
+WHS_DNISPurpose=CONTACTLENS&#xD;
+</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="A8510_Welcome" user="mboothroyd" date="03.04.2018">
+			<Comment>Corrected spelling INI_B language prompt and removed "el" from "el nueve"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="D8500_DNIS_LookUp" user="ageorge" date="25.10.2017">
+			<Comment>Added state to lookup DNIS info.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="D8515_ImmediateTransferSwitch" user="ageorge" date="25.10.2017">
+			<Comment>A decision state to switch greeting based on departments.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="A8510_Welcome" user="ageorge" date="25.10.2017">
+			<Comment>Added additional greeting conditions to accomdate different departments.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="A8510_Welcome" user="tserdang" date="28.04.2017">
+			<Comment>Updated condition to send DTMF-0 to Main Menu and not to XferToAgent</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="StartHere" user="tserdang" date="21.04.2017">
+			<Comment>Added note about Representative Universal Grammar. </Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8530_MainMenu" user="tserdang" date="21.04.2017">
+			<Comment>Added new condition and note to send "Representative" to S8585 and Daily Living</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8720_MainMenuNoHL" user="tserdang" date="21.04.2017">
+			<Comment>Added new condition and note to send "Representative" to S8585 and Daily Living</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="S8590_XferOnFailure" user="tserdang" date="23.03.2017">
+			<Comment>Added Note about Agent transfers. </Comment>
+		</VersionNote>
+		<VersionNote changedStateName="S8595_XferBadEmail" user="tserdang" date="23.03.2017">
+			<Comment>Added Note about Agent transfers. </Comment>
+		</VersionNote>
+		<VersionNote changedStateName="S8585_XferToAgent" user="tserdang" date="23.03.2017">
+			<Comment>In Condition: Use if caller asked for "representative". Removed comment in parentheses, (coming from PhotoMenu)</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="S8585_XferToAgent" user="tserdang" date="16.03.2017">
+			<Comment>Updated Spanish promp verbiage with: "A veces podemos grabar las llamadas para calidad. "</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="S8585_XferToAgent" user="tserdang" date="16.03.2017">
+			<Comment>Added Note about Agent transfers. </Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8710_AskHelpLogin" user="pchadh48" date="01.03.2017">
+			<Comment>IT4: Added grammar name and slot/value information</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="A8510_Welcome" user="pchadh48" date="01.03.2017">
+			<Comment>IT4: Added DTMF-9 option</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8730_PharmacyMenuNoHL" user="pchadh48" date="01.03.2017">
+			<Comment>Updated grammar information to use PHARMACYMENUNOHL rule</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8740_PhotoMenuNoHL" user="pchadh48" date="01.03.2017">
+			<Comment>Updated grammar information to use PHOTOMENUNOHL rule</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8750_OtherOrdersMenuNoHL" user="pchadh48" date="01.03.2017">
+			<Comment>Updated grammar information to use OTHERORDERSMENUNOHL rule</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8760_HMWSEMenuNoHL" user="pchadh48" date="01.03.2017">
+			<Comment>Updated grammar information to use HMWSEMENUNOHL rule</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8520_OpenPrompt" user="tserdang" date="24.02.2017">
+			<Comment>change Help with Log in condition's next state from S8585 to S8580. Changed Failure conditions next state from M8720 to M8530</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8750_OtherOrdersMenuNoHL" user="ageorge" date="24.02.2017">
+			<Comment>Updated NI1 by removing, 'problems logging in'.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="S8595_XferBadEmail" user="ageorge" date="24.02.2017">
+			<Comment>Updated INI prompt by adding, "Sometimes we record these calls for quality and training… ".</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="S8580_PasswordResetModule" user="ageorge" date="23.02.2017">
+			<Comment>Updated notes and added a new condition for 'BadEmail' transfer for handling email failure.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="S8595_XferBadEmail" user="ageorge" date="23.02.2017">
+			<Comment>A new state for handling xfer for email failure.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="D8700_CheckHelpLogin" user="tserdang" date="23.02.2017">
+			<Comment>Added note, default = OFF</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="B8511_IntentCaptureSwitch" user="tserdang" date="23.02.2017">
+			<Comment>Added note default state is IntentCapture = OFF</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="S8580_PasswordResetModule" user="ageorge" date="20.02.2017">
+			<Comment>Updated state with prefix</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="A8510_Welcome" user="tserdang" date="20.02.2017">
+			<Comment>Kept legacy DTMF-8 as a valid input for Spanish</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="S8585_XferToAgent" user="ageorge" date="17.02.2017">
+			<Comment>Updated verbiage on 'All other cases' by removing, 'Sure' from the beginning of the prompt.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="StartHere" user="ageorge" date="17.02.2017">
+			<Comment>Updated all remaining states with  prefixes / numbers. </Comment>
+		</VersionNote>
+		<VersionNote changedStateName="S8580_PasswordResetModule" user="dmontefusco" date="10.02.2017">
+			<Comment>Parsing ExitReason parameter returned by new version of the Password Reset Module</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8720_MainMenuNoHL" user="ageorge" date="09.02.2017">
+			<Comment>Added a copy of the main menu and fixed the broken links.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8710_AskHelpLogin" user="ageorge" date="09.02.2017">
+			<Comment>Asks if the user is calling for logging help prompt.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="D8700_CheckHelpLogin" user="ageorge" date="09.02.2017">
+			<Comment>Decision state to check if Help_Login = ON or OFF.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="S8580_PasswordResetModule" user="ageorge" date="09.02.2017">
+			<Comment>PasswordReset submodule link.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="StartHere" user="ageorge" date="09.02.2017">
+			<Comment>Modified the following states to include, 'Problems Logging In' to connect to PasswordResetModule - M8550, M8555, M8560, M8565, M8570</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8720_MainMenuNoHL" user="tserdang" date="09.02.2017">
+			<Comment>Changed "Now" to "Okay" in _MainMenu_INI</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="D8700_CheckHelpLogin" user="tserdang" date="09.02.2017">
+			<Comment>Added Note about flag</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="A8510_Welcome" user="ageorge" date="09.02.2017">
+			<Comment>Changed DTMF-8 to DTMF-9 and fixed the verbiage to, "oprima el nueve."</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="StartHere" user="ageorge" date="09.02.2017">
+			<Comment>Added extension, 'NoHL' to menu states  not containing, 'Problems logging in.'</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="S8585_XferToAgent" user="dite" date="30.03.2016">
+			<Comment>Synched prompts with recordings. changed "we sometimes record..." into "sometimes we record..."</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="S8590_XferOnFailure" user="dite" date="30.03.2016">
+			<Comment>Synched prompts with recordings. changed "we sometimes record..." into "sometimes we record..."</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8570_PhotoExistingOrder" user="dite" date="24.03.2016">
+			<Comment>Changed _NM2 and _NI2 prompts (removed "telephone") to make consistent with all other error messages</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8520_OpenPrompt" user="pchadh48" date="15.03.2016">
+			<Comment>IT03: Added grammar name and slot/value info</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8730_PharmacyMenuNoHL" user="pchadh48" date="15.03.2016">
+			<Comment>IT03: Updated slot/value information to match the prompting.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8555_PhotoMenu" user="pchadh48" date="15.03.2016">
+			<Comment>IT03: Updated slot/value information to match the prompting.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8560_OtherOrdersMenu" user="pchadh48" date="15.03.2016">
+			<Comment>IT03: Updated slot/value information to match the prompting.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8565_HMWSEMenu" user="pchadh48" date="15.03.2016">
+			<Comment>IT03: Updated slot/value information to match the prompting.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8520_OpenPrompt" user="jcbryak3" date="14.03.2016">
+			<Comment>Changed third response / condition from "help me with somethinge else" to "help with login"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8720_MainMenuNoHL" user="jcbryak3" date="14.03.2016">
+			<Comment>Added condition to prompts M8530_MainMenu_FromOpenPrompt_INI&#xD;
+&#xD;
+"If Intent Capture = ON and coming from M8520</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8720_MainMenuNoHL" user="jcbryak3" date="14.03.2016">
+			<Comment>Added condition to M8530_MainMenu_INI&#xD;
+&#xD;
+"Else"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="A8510_Welcome" user="jcbryak3" date="11.03.2016">
+			<Comment>Moved transfer to B8511 from Error condition to "No Input / No Match"&#xD;
+&#xD;
+Deleted Error condition.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="A8510_Welcome" user="jcbryak3" date="11.03.2016">
+			<Comment>Added Note: &#xD;
+&#xD;
+Barge - in on for DTMF only. No barge - in for speech.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="B8511_IntentCaptureSwitch" user="dite" date="10.03.2016">
+			<Comment>New State: decide whether to offer the open ended prompt or the normal main menu&#xD;
+&#xD;
+Business logic will reside in the technical design</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8520_OpenPrompt" user="dite" date="10.03.2016">
+			<Comment>New State to capture utterances and provide a basic level of grammar handling</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="M8720_MainMenuNoHL" user="dite" date="10.03.2016">
+			<Comment>Added _FromOpenPrompt_INI prompt</Comment>
+		</VersionNote>
+	</VersionNotes>
+</Design>
+
