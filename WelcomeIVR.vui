@@ -1,0 +1,3039 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?resourcesPath .resources/WelcomeIVR?>
+<?audioPath .resources/WelcomeIVR?>
+<Design version="3.4.1" type="VOICE" locale="en-GB">
+	<Languages>
+		<Language>en-US</Language>
+		<Language>es-SP</Language>
+	</Languages>
+	<Variants>
+		<Variant>Female English</Variant>
+		<Variant>Female Spanish</Variant>
+	</Variants>
+	<LanguagesFilter>
+		<Language>en-US</Language>
+	</LanguagesFilter>
+	<VariantsFilter>
+		<Variant>Female English</Variant>
+	</VariantsFilter>
+	<States>
+		<State name="StartHere" type="AppInit" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>"If Intent Capture on": check DNIS for Intent Capture&#xD;
+&#xD;
+NLIVR-1131 eComm - intent capture&#xD;
+DNIS = 866-264-2910 (Photo) or 877-250-5823 (Main Customer Service)&#xD;
+</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts />
+			<Grammars />
+			<Navigation>
+				<FromStates />
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>If Intent Capture on&#xD;
+</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10005_WelcomeIntentCapture" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Otherwise</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10000_Welcome" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="10000_Welcome" type="Menu" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>Callers are greeted in English</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10000_Welcome" type="INI" additionalText="BalanceRewards" level="" freeText="" />
+					<TextContentList>
+						<Text>Hi. Thanks for calling Balance Rewards. Para continuar en español, oprima nueve. Walgreens is working hard to help you during the coronavirus outbreak. Go to walgreens.com/coronavirus for the latest updates from Walgreens and the CDC. As always, you can talk to us in the store or by phone, or you can chat with a pharmacist on our website or on our mobile app. Hold times on the phone are longer than usual.</Text>
+					</TextContentList>
+					<DesignNotes>If DNISPurpose == BR</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10000_Welcome" type="INI" additionalText="eCommRoto" level="" freeText="" />
+					<TextContentList>
+						<Text>Hi – thanks for calling Walgreens.com customer service. Para continuar en español, oprima nueve. </Text>
+					</TextContentList>
+					<DesignNotes>if DNISPurpose == ROTO (eCommerce Roto)</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10000_Welcome" type="INI" additionalText="eCommCopay" level="" freeText="" />
+					<TextContentList>
+						<Text>Hi – thanks for calling Walgreens.com customer service. Para continuar en español, oprima nueve. </Text>
+					</TextContentList>
+					<DesignNotes>if DNISPurpose == COPAY (eCommerce Copay)</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10000_Welcome" type="INI" additionalText="eCommContactLens" level="" freeText="" />
+					<TextContentList>
+						<Text>Hi – Thanks for calling Walgreens Contact Lens Line. Para continuar en español, oprima nueve.</Text>
+					</TextContentList>
+					<DesignNotes>if DNISPurpose == CONTACTLENS (eCommerce Contact Lenses)</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10000_Welcome" type="INI" additionalText="eCommOther" level="" freeText="" />
+					<TextContentList>
+						<Text>Hi – thanks for calling Walgreens.com customer service. Para continuar en español, oprima nueve. </Text>
+					</TextContentList>
+					<DesignNotes>if DNISPurpose == any other eComm line</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10000_Welcome" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Hi. Thanks for calling Walgreens.com customer service. Para continuar en español, oprima nueve. Walgreens is working hard to help you during the coronavirus outbreak. Go to walgreens.com/coronavirus for the latest updates from Walgreens and the CDC. As always, you can talk to us in the store or by phone, or you can chat with a pharmacist on our website or on our mobile app. Hold times on the phone are longer than usual.</Text>
+					</TextContentList>
+					<DesignNotes>Else</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10000_Welcome" type="INI" additionalText="ARxWP" level="" freeText="" />
+					<TextContentList>
+						<Text>Gracias por llamar a Alliance Rx Walgreens Prime. Si esta es una emergencia médica, por favor cuelgue y llame al 911. A veces podemos grabar estas llamadas. To continue in English, press 9.</Text>
+					</TextContentList>
+					<DesignNotes>If DNISPurpose=ARX &amp; language = Spanish</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="StartHere" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>DTMF-9&#xD;
+// Switch to selected language and go to Open Prompt</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10010_OpenPrompt" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Otherwise</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10010_OpenPrompt" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="10005_WelcomeIntentCapture" type="Menu" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>Welcome prompt for Intent Capture&#xD;
+There is no corresponding Spanish Welcome prompt, since all callers are presented first with the English option.</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10005_WelcomeIntentCapture" type="INI" additionalText="eCommPhoto" level="" freeText="" />
+					<TextContentList>
+						<Text>Hi - thanks for calling Walgreens photo department. Para continuar en español, oprima nueve.</Text>
+					</TextContentList>
+					<DesignNotes>If eComm Photo DNIS</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10005_WelcomeIntentCapture" type="INI" additionalText="eComm" level="" freeText="" />
+					<TextContentList>
+						<Text>Hi – thanks for calling Walgreens.com customer service. Para continuar en español, oprima nueve. </Text>
+					</TextContentList>
+					<DesignNotes>If eComm Customer Service DNIS</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="StartHere" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>DTMF-9 &amp; (eComm DNIS)&#xD;
+// Switch to selected language and go to Open Prompt</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10010_OpenPrompt" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Otherwise</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10010_OpenPrompt" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="10010_OpenPrompt" type="Menu" status="Review">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>Only one level of No Input handling. At the second NI, follow the FAILURE condition.&#xD;
+&#xD;
+NLIVR-1597: Spanish only tags - flu_shot, physical, balancerewards&#xD;
+&#xD;
+Any NM will be tagged 'vague'.&#xD;
+&#xD;
+Intent Capture Setup Strategy&#xD;
+On first NI route call to transition prompt, then to main menu&#xD;
+If utterance is tagged, route to transition prompt, then to main menu&#xD;
+&#xD;
+NOTE: BR_recent_transactions is not currently in the SLM and is therefore not testable</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10010_OpenPrompt" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Now, how can I help you today?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10010_OpenPrompt" type="REE" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Alright. What else can I help you with?</Text>
+					</TextContentList>
+					<DesignNotes>Use if coming from (10120 or 10130) &amp;&amp; [ExitReason] == "BackToMenu"</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10010_OpenPrompt" type="REE" additionalText="" level="A" freeText="" />
+					<TextContentList>
+						<Text>Okay, if that's all you needed, feel free to hang up. Or for anything else, just tell me how I can help you.</Text>
+					</TextContentList>
+					<DesignNotes>Use if coming from 10060 or 10055</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10010_OpenPrompt" type="COR" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry about that... Just tell me again why you're calling.</Text>
+					</TextContentList>
+					<DesignNotes>Use if coming from 10020_ConfirmIntent</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10010_OpenPrompt" type="NI1" additionalText="BalanceRewards" level="" freeText="" />
+					<TextContentList>
+						<Text>You can talk to me using full phrases. For example, you can say, "I need to check how many points I have" or, "I want to sign up". So how can I help you?</Text>
+					</TextContentList>
+					<DesignNotes>If BalanceRewards DNIS</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10010_OpenPrompt" type="NI1" additionalText="eComm" level="" freeText="" />
+					<TextContentList>
+						<Text>You can talk to me using full phrases. For example, you can say "I forgot my password", or "I need help with a photo order". So how can I help you?</Text>
+					</TextContentList>
+					<DesignNotes>if any of the eComm DNIS</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10010_OpenPrompt" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>You can talk to me using full phrases. For example, you could say, "I’d like to check my balance rewards points", or "I need information on Healthcare Clinics". So how can I help you?</Text>
+					</TextContentList>
+					<DesignNotes>Else</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10010_OpenPrompt" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Bien, ¿en qué puedo ayudarle?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10010_OpenPrompt" type="REE" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Muy bien. ¿En qué más puedo ayudarle?</Text>
+					</TextContentList>
+					<DesignNotes>Use if coming from 10120 &amp;&amp; [ExitReason] == "BackToMenu"</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10010_OpenPrompt" type="REE" additionalText="" level="A" freeText="" />
+					<TextContentList>
+						<Text>Bien, si eso es todo que necesita puede colgar. O para cualquier otra cosa, solo dígame cómo puedo servirle.</Text>
+					</TextContentList>
+					<DesignNotes>Use if coming from 10060 or 10055</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10010_OpenPrompt" type="COR" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento… Solo dígame otra vez el motivo de su llamada.</Text>
+					</TextContentList>
+					<DesignNotes>Use if coming from 10020_ConfirmIntent</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10010_OpenPrompt" type="NI1" additionalText="BalanceRewards" level="" freeText="" />
+					<TextContentList>
+						<Text>Puede hablarme usando frases completas. Por ejemplo, puede decir: “Necesito verificar cuántos puntos tengo” o “Quiero inscribirme.” Así que ¿cómo puedo ayudarle?</Text>
+					</TextContentList>
+					<DesignNotes>If BalanceRewards DNIS</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10010_OpenPrompt" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Usted me puede hablar usando frases completas. Por ejemplo, puede decir “quiero verificar el saldo de mis puntos de Balance Rewards” o “Necesito información sobre las Healthcare Clinics”. Así que ¿cómo puedo ayudarle?</Text>
+					</TextContentList>
+					<DesignNotes>Else</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="10000_Welcome" />
+					<State ref="10020_ConfirmIntent" />
+					<State ref="10005_WelcomeIntentCapture" />
+					<State ref="10010_OpenPrompt" />
+					<State ref="10120_BalanceRewardsSubDialog" />
+					<State ref="10060_DataPrivacyFAQ" />
+					<State ref="10055_HCCFAQ" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>any tag &amp; Intent Capture</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10110_XferIntentCapture" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="high">
+						<ConditionContentList>
+							<Text>tag == (hcc, hcc_hours, immunization, BR_vague, BR_transfer, BR_account_balance, BR_missing_points, BR_recent_transactions, locator, store_address, store_directions, flu_shot, physical, balancerewards, privacy_act, delete_vague, record_vague)</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10030_AckIntent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="mid">
+						<ConditionContentList>
+							<Text>tag == (hcc, hcc_hours, immunization, BR_vague, BR_transfer, BR_account_balance, BR_missing_points, BR_recent_transactions, locator, store_address, store_directions, flu_shot, physical, balancerewards, privacy_act, delete_vague, record_vague)</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10020_ConfirmIntent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>any other tag &amp; DNISPurpose=BR&#xD;
+// no match should match to BR_Vague</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10120_BalanceRewardsSubDialog" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>any other tag</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10050_MainMenu" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>DTMF-9&#xD;
+// Switch to selected language and re-enter Open Prompt</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10010_OpenPrompt" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>Intent capture only: FAILURE on 1st No-Input</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10110_XferIntentCapture" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE (2nd No-Input) &amp;&amp; DNISPurpose=BR&#xD;
+// set tag = BR_vague</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10120_BalanceRewardsSubDialog" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE (2nd No-Input)</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10050_MainMenu" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="10020_ConfirmIntent" type="Yes/No" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>ONLY ONE LEVEL OF ERRORS. &#xD;
+&#xD;
+Barge-in should be disabled on the concat in this state&#xD;
+&#xD;
+NLIVR-596 NOTE: there are TWO versions of the acknowledgment utilities for Balance Rewards: one set is used if the caller dialled the Balance Rewards DNIS (e.g. BR_missing_points.wav), the second set is used if they dialled the Welcome IVR DNIS (eg. BR_800_missing_points.wav)</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<ConcatenationStrategy bargein="OFF">
+					<name>ConfirmIntent</name>
+					<TextContentList>
+						<Text>e.g. You’re calling about Healthcare Clinic...</Text>
+					</TextContentList>
+					<utilities>
+						<utility file="utilities/ConfirmIntent_Utils.xlsx" />
+					</utilities>
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</ConcatenationStrategy>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10020_ConfirmIntent" type="INI" additionalText="" level="B" freeText="" />
+					<TextContentList>
+						<Text>[350ms pause] right?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10020_ConfirmIntent" type="REE" additionalText="" level="B" freeText="" />
+					<TextContentList>
+						<Text>[350ms pause] correct?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10020_ConfirmIntent" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry – if I got that right, press 1. If not, press 2</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10020_ConfirmIntent" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>If I got that right, press 1. If not, press 2</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<ConcatenationStrategy bargein="OFF">
+					<name>ConfirmIntent</name>
+					<TextContentList>
+						<Text>e.g. You’re calling about Healthcare Clinic...</Text>
+					</TextContentList>
+					<utilities>
+						<utility file="utilities/ConfirmIntent_Utils - ES.xlsx" />
+					</utilities>
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</ConcatenationStrategy>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10020_ConfirmIntent" type="INI" additionalText="" level="B" freeText="" />
+					<TextContentList>
+						<Text>[350ms pause] cierto?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10020_ConfirmIntent" type="REE" additionalText="" level="B" freeText="" />
+					<TextContentList>
+						<Text>[350ms pause] correcto?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10020_ConfirmIntent" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento, si le entendí correctamente, oprima 1. De lo contrario, oprima 2.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10020_ConfirmIntent" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Si le entendí correctamente, oprima 1. De lo contrario, oprima 2.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="10010_OpenPrompt" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Yes / DTMF-1</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10040_EvalIntent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>No (First time) / DTMF-2</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10010_OpenPrompt" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>No (Second Time) / DTMF-2 &amp; DNISPurpose=BR</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10120_BalanceRewardsSubDialog" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>No (Second time) / DTMF-2</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10050_MainMenu" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE &amp; DNISPurpose=BR</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10120_BalanceRewardsSubDialog" />
+						<Language>es-SP</Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10050_MainMenu" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="10030_AckIntent" type="Presentation" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>NLIVR-596 NOTE: there are TWO versions of the acknowledgment utilities for Balance Rewards: one set is used if the caller dialled the Balance Rewards DNIS (e.g. BR_missing_points_ack.wav), the second set is used if they dialled the Welcome IVR DNIS (eg. BR_800_missing_points_ack.wav)</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<ConcatenationStrategy bargein="OFF">
+					<name>AckIntent</name>
+					<TextContentList>
+						<Text>e.g. Alright, balance rewards [400ms pause]</Text>
+					</TextContentList>
+					<utilities>
+						<utility file="utilities/AckIntent_Utils.xlsx" />
+					</utilities>
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</ConcatenationStrategy>
+				<ConcatenationStrategy bargein="OFF">
+					<name>AckIntent</name>
+					<TextContentList>
+						<Text>e.g. Alright, balance rewards [400ms pause]</Text>
+					</TextContentList>
+					<utilities>
+						<utility file="utilities/AckIntent_Utils - ES.xlsx" />
+					</utilities>
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</ConcatenationStrategy>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="10010_OpenPrompt" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Always</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10040_EvalIntent" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="10040_EvalIntent" type="Decision" status="Review">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>Evaluate returned Tag to decide where to go next&#xD;
+&#xD;
+NLIVR-1597: Spanish only tags - flu_shot, physical, balancerewards</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts />
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="10030_AckIntent" />
+					<State ref="10020_ConfirmIntent" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>tag == hcc, hcc_hours, immunization, flu_shot, physical, rx_record</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10055_HCCFAQ" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>tag == BR_vague, BR_transfer, BR_account_balance, BR_missing_points, BR_recent_transactions, balancerewards&#xD;
+&#xD;
+// Set transfer to Balance Rewards IVR Module&#xD;
+// Pass language setting</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10120_BalanceRewardsSubDialog" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>tag == locator, store_address, store_directions&#xD;
+&#xD;
+// Set transfer to Locator IVR &#xD;
+// Pass language setting</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10125_LocatorSubDialog" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>tag == privacy_act &amp;&amp; DNIS == WelcomeIVR</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10060_DataPrivacyFAQ" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>tag == (delete_vague or record_vague) &amp;&amp; DNIS == WelcomeIVR</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10070_DeleteAccountDisambig" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>tag == (delete_vague, record_vague, or privacy_act) &amp;&amp; DNISPurpose == BR&#xD;
+&#xD;
+// Set transfer to Balance Rewards IVR Module&#xD;
+// Pass language setting</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10120_BalanceRewardsSubDialog" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Otherwise&#xD;
+&#xD;
+// Set transfer to Consumer Relations Agent</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10100_Xfer" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="10050_MainMenu" type="Menu" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10050_MainMenu" type="INI" additionalText="NoReco" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry - I'm not sure what you're looking for - Let's try this: For the address and phone number of a nearby Walgreens, press 1. For Balance Rewards, press 2. For customer service issues, 3. Or, for anything else, press 4.</Text>
+					</TextContentList>
+					<DesignNotes>Use if coming from 10010_OpenPrompt</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10050_MainMenu" type="INI" additionalText="Disconf" level="" freeText="" />
+					<TextContentList>
+						<Text>I'm sorry - Let's try this: For the address and phone number of a nearby Walgreens, press 1. For Balance Rewards, press 2. For customer service issues, 3. Or, for anything else, press 4.</Text>
+					</TextContentList>
+					<DesignNotes>Use if coming from 10020_ConfirmIntent</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10050_MainMenu" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, to find a nearby store, press 1. For Balance Rewards, press 2. For customer service, press 3. Or, for anything else, press 4.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10050_MainMenu" type="NM2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry: for the address and phone number of a nearby Walgreens, press 1. For Balance Rewards, press 2. For customer service issues, 3. Or, for anything else, press 4.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10050_MainMenu" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>To find a nearby store, press 1. For Balance Rewards, press 2. For customer service, press 3. Or, for anything else, press 4.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10050_MainMenu" type="NI2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, for the address and phone number of a nearby Walgreens, press 1. For Balance Rewards, press 2. For customer service issues, 3. Or, for anything else, press 4.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10050_MainMenu" type="INI" additionalText="NoReco" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento, no sé qué es lo que desea. Tratemos lo siguiente: Para recibir la dirección y el número de teléfono de la tienda Walgreens más cercana, oprima 1. Para Balance Rewards, oprima 2. Para asuntos sobre atención al cliente, 3. O, para cualquier otra cosa, oprima 4.</Text>
+					</TextContentList>
+					<DesignNotes>Use if coming from 10010_OpenPrompt</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10050_MainMenu" type="INI" additionalText="Disconf" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento, tratemos lo siguiente: Para recibir la dirección y el número de teléfono de la tienda Walgreens más cercana, oprima 1. Para Balance Rewards, oprima 2. Para asuntos sobre atención al cliente, 3. O, para cualquier otra cosa, oprima 4.</Text>
+					</TextContentList>
+					<DesignNotes>Use if coming from 10020_ConfirmIntent</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10050_MainMenu" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento, para encontrar la tienda más cercana, oprima 1. Para Balance Rewards, oprima 2. Para atención al cliente, 3. O, para cualquier otra cosa, oprima 4.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10050_MainMenu" type="NM2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento, para recibir la dirección y el número de teléfono de la tienda Walgreens más cercana, oprima 1. Para Balance Rewards, oprima 2. Para asuntos sobre atención al cliente, 3. O, para cualquier otra cosa, oprima 4.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10050_MainMenu" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Para encontrar la tienda más cercana, oprima 1. Para Balance Rewards, oprima 2. Para atención al cliente, 3. O, para cualquier otra cosa, oprima 4.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10050_MainMenu" type="NI2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento, para recibir la dirección y el número de teléfono de la tienda Walgreens más cercana, oprima 1. Para Balance Rewards, oprima 2. Para asuntos sobre atención al cliente, 3. O, para cualquier otra cosa, oprima 4.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="10010_OpenPrompt" />
+					<State ref="10020_ConfirmIntent" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>DTMF-1&#xD;
+&#xD;
+// Set transfer to Locator IVR&#xD;
+// Pass language setting</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10125_LocatorSubDialog" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>DTMF-2</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10120_BalanceRewardsSubDialog" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>DTMF-3&#xD;
+&#xD;
+// Set transfer to Consumer Relations Agent</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10100_Xfer" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>DTMF-4&#xD;
+&#xD;
+// Set transfer to YESS Agent</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10100_Xfer" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10105_XferOnError" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="10055_HCCFAQ" type="Menu" status="Draft">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10055_HCCFAQ" type="RPT" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sure. [300ms pause]</Text>
+					</TextContentList>
+					<DesignNotes>If asked for repeat</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10055_HCCFAQ" type="RPT" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Como no.</Text>
+					</TextContentList>
+					<DesignNotes>If asked for repeat</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10055_HCCFAQ" type="INI" additionalText="Clinics" level="A" freeText="" />
+					<TextContentList>
+						<Text>Todas las clínicas de salud de propiedad de Walgreens cerraron a principios de 2020, pero aún hay clínicas de salud de nuestros asociados en algunas de las tiendas de Walgreens. Para encontrar los servicios de estas clínicas cerca a usted, visite walgreens.com barra diagonal find care. Si llama para obtener una copia de sus registros de salud que tiene la clínica, visite walgreens.com barra diagonal healthcare clinic records. Descargue el formulario y envíelo por correo o por fax junto con una copia de un documento de identidad con foto. Tenga en cuenta que recibir sus registros demorará por lo menos 4 días laborales. [800ms pause]</Text>
+					</TextContentList>
+					<DesignNotes>If tag == hcc, hcc_hours</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10055_HCCFAQ" type="INI" additionalText="Services" level="A" freeText="" />
+					<TextContentList>
+						<Text>Todas las clínicas de salud de propiedad de Walgreens cerraron a principios de 2020, pero aún hay clínicas de salud de nuestros asociados en algunas de las tiendas de Walgreens. Para encontrar los servicios de estas clínicas cerca a usted, visite walgreens.com barra diagonal find care. Repito, es walgreens.com barra diagonal find care.</Text>
+					</TextContentList>
+					<DesignNotes>If tag == immunization, flu_shot, physical</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10055_HCCFAQ" type="INI" additionalText="Records" level="A" freeText="" />
+					<TextContentList>
+						<Text>Para obtener una copia de sus registros de salud que tiene la clínica, visite walgreens.com barra diagonal healthcare clinic records. Repito: walgreens.com barra diagonal healthcare clinic records. Descargue el formulario y envíelo por correo o por fax junto con una copia de un documento de identidad con foto. Tenga en cuenta que recibir sus registros demorará por lo menos 4 días laborales. [800ms pause]</Text>
+					</TextContentList>
+					<DesignNotes>If tag == healthcare_records</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10055_HCCFAQ" type="INI" additionalText="" level="B" freeText="" />
+					<TextContentList>
+						<Text>¿Quiere escuchar eso de nuevo?</Text>
+					</TextContentList>
+					<DesignNotes>Always</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10055_HCCFAQ" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento. Sólo diga “sí” o no”.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10055_HCCFAQ" type="NM2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento – usemos el teclado de su teléfono. Si quiere escuchar la información de nuevo, oprima 1. De lo contrario, oprima 2.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10055_HCCFAQ" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sólo diga “sí” o no”.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10055_HCCFAQ" type="NI2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Usemos el teclado de su teléfono. Si quiere escuchar la información de nuevo, oprima 1. De lo contrario, oprima 2.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10055_HCCFAQ" type="INI" additionalText="Clinics" level="A" freeText="" />
+					<TextContentList>
+						<Text>All Walgreens-owned healthcare clinics closed at the beginning of 2020, but there are still *partner* healthcare clinics inside some Walgreens stores. To find clinic services near you, go to walgreens.com slash find care. If you’re calling to get a copy of your healthcare clinic records, go to walgreens.com slash healthcare clinic records. Download the form and mail or fax it along with a copy of the patient’s photo ID. Allow at least 4 business days to get your records. [800ms pause]</Text>
+					</TextContentList>
+					<DesignNotes>If tag == hcc, hcc_hours</DesignNotes>
+					<CoachingComments>"slash find care"; "slash healthcare clinic records"</CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10055_HCCFAQ" type="INI" additionalText="Services" level="A" freeText="" />
+					<TextContentList>
+						<Text>All Walgreens-owned healthcare clinics closed at the beginning of 2020, but there are still *partner* healthcare clinics inside some Walgreens stores. To find clinic services near you, go to walgreens.com/findcare. That's walgreens.com/findcare. [800ms pause]</Text>
+					</TextContentList>
+					<DesignNotes>If tag == immunization, flu_shot, physical</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10055_HCCFAQ" type="INI" additionalText="Records" level="A" freeText="" />
+					<TextContentList>
+						<Text>To get a copy of your healthcare clinic records, go to walgreens.com slash healthcare clinic records. that's walgreens.com slash healthcare clinic records. Download the form and mail or fax it along with a copy of the patient’s photo ID. Allow at least 4 business days to get your records. [800ms pause]</Text>
+					</TextContentList>
+					<DesignNotes>If tag == rx_record</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10055_HCCFAQ" type="INI" additionalText="" level="B" freeText="" />
+					<TextContentList>
+						<Text>Would you like to hear that again?</Text>
+					</TextContentList>
+					<DesignNotes>Always</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10055_HCCFAQ" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry. Just say "yes" or "no".</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10055_HCCFAQ" type="NM2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry - let's use the keypad. If you'd like to hear the information again, press 1. If not, press 2.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10055_HCCFAQ" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Just say "yes" or "no".</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10055_HCCFAQ" type="NI2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Let's use the keypad. If you'd like to hear the information again, press 1. If not, press 2.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="10055_HCCFAQ" />
+					<State ref="10040_EvalIntent" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Yes / DTMF-1</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10055_HCCFAQ" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>No / DTMF-2</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10010_OpenPrompt" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10105_XferOnError" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="10060_DataPrivacyFAQ" type="Yes/No" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10060_DataPrivacyFAQ" type="INI" additionalText="" level="A" freeText="" />
+					<TextContentList>
+						<Text>As of January 1st, 2020, residents of California can get details on personal data that's being collected and stored, and they can ask that their data be deleted.</Text>
+					</TextContentList>
+					<DesignNotes>Always</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10060_DataPrivacyFAQ" type="INI" additionalText="" level="B" freeText="" />
+					<TextContentList>
+						<Text>[800ms pause] Would you like to talk to someone for more information?</Text>
+					</TextContentList>
+					<DesignNotes>Always</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10060_DataPrivacyFAQ" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, just say yes or no.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10060_DataPrivacyFAQ" type="NM2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry - let's use the keypad. If you'd like to talk to someone for more information, press 1. If not, press 2.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10060_DataPrivacyFAQ" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Just say yes or no.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10060_DataPrivacyFAQ" type="NI2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Let's use the keypad. If you'd like to talk to someone for more information, press 1. If not, press 2.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10060_DataPrivacyFAQ" type="INI" additionalText="" level="A" freeText="" />
+					<TextContentList>
+						<Text>A partir del primero de enero de 2020, los residentes de California pueden obtener detalles de sus datos personales que se están recolectando y guardando, y pueden pedir que esos datos sean borrados.</Text>
+					</TextContentList>
+					<DesignNotes>Always</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10060_DataPrivacyFAQ" type="INI" additionalText="" level="B" freeText="" />
+					<TextContentList>
+						<Text>[800ms pause] ¿Quiere hablar con alguien para recibir más información?</Text>
+					</TextContentList>
+					<DesignNotes>Always</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10060_DataPrivacyFAQ" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento, solo diga sí o no.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10060_DataPrivacyFAQ" type="NM2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento, vamos a usar el teclado de su teléfono. Si quiere hablar con alguien para recibir más información, oprima 1. De lo contrario, oprima 2.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10060_DataPrivacyFAQ" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Solo diga sí o no.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10060_DataPrivacyFAQ" type="NI2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Vamos a usar el teclado de su teléfono. Si quiere hablar con alguien para recibir más información, oprima 1. De lo contrario, oprima 2.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="10040_EvalIntent" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Yes / DTMF-1</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10100_Xfer" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>No / DTMF-2</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10010_OpenPrompt" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10105_XferOnError" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="10070_DeleteAccountDisambig" type="Yes/No" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10070_DeleteAccountDisambig" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>And is this about data privacy?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments>Caller just confirmed yes to "You want to delete your account, right?" or to "You're calling about records, right?"</CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10070_DeleteAccountDisambig" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, just say yes or no.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10070_DeleteAccountDisambig" type="NM2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry - let's use the keypad. If you have a question about data privacy, press 1. If not press 2.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10070_DeleteAccountDisambig" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Just say yes or no.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="10070_DeleteAccountDisambig" type="NI2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Let's use the keypad. If you have a question about data privacy, press 1. If not, press 2.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10070_DeleteAccountDisambig" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>¿Y esto es respecto a la privacidad de datos?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10070_DeleteAccountDisambig" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento, solo diga sí o no.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10070_DeleteAccountDisambig" type="NM2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento, vamos a usar el teclado de su teléfono. Si tiene una pregunta sobre la privacidad de datos, oprima 1. De lo contrario, oprima 2.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10070_DeleteAccountDisambig" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Solo diga sí o no.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10070_DeleteAccountDisambig" type="NI2" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Vamos a usar el teclado de su teléfono. Si tiene una pregunta sobre la privacidad de datos, oprima 1. De lo contrario, oprima 2.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="10040_EvalIntent" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Yes / DTMF-1&#xD;
+&#xD;
+// Set transfer to CCPA</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10100_Xfer" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>No / DTMF-2&#xD;
+&#xD;
+// Set transfer to YESS Agent</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10100_Xfer" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE&#xD;
+&#xD;
+// Set transfer to YESS Agent</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10105_XferOnError" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="10100_Xfer" type="Transfer" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>This state is used to transfer either to an an agent or to another application. Play the prompt only if transferring to an agent.&#xD;
+&#xD;
+Pass language setting</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10100_Xfer" type="INI" additionalText="Agent" level="" freeText="" />
+					<TextContentList>
+						<Text>Okay, let me transfer you to someone who can help. Our hold times are longer than usual right now – we’ll be with you as soon as possible.</Text>
+					</TextContentList>
+					<DesignNotes>Use if transferring to an Agent</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10100_Xfer" type="INI" additionalText="Agent" level="" freeText="" />
+					<TextContentList>
+						<Text>Bien, permítame comunicarle con alguien que puede ayudarle. [TRANSLATE] Our hold times are longer than usual right now – we’ll be with you as soon as possible.</Text>
+					</TextContentList>
+					<DesignNotes>Use if transferring to an Agent</DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="10050_MainMenu" />
+					<State ref="10040_EvalIntent" />
+					<State ref="10060_DataPrivacyFAQ" />
+					<State ref="10070_DeleteAccountDisambig" />
+				</FromStates>
+				<Conditions />
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="10105_XferOnError" type="Transfer" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>Pass language setting</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10105_XferOnError" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, let me connect you to a specialist who can help. Our hold times are longer than usual right now – we’ll be with you as soon as possible.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10105_XferOnError" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento, permítame comunicarle con un especialista que puede ayudarle. [TRANSLATE] Our hold times are longer than usual right now – we’ll be with you as soon as possible.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="10050_MainMenu" />
+					<State ref="10060_DataPrivacyFAQ" />
+					<State ref="10070_DeleteAccountDisambig" />
+					<State ref="10055_HCCFAQ" />
+				</FromStates>
+				<Conditions />
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="10110_XferIntentCapture" type="Transfer" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>Always: Pass in language selection&#xD;
+&#xD;
+NLIVR-1175 ARxWP Intent Capture Spanish:&#xD;
+- If language is English, route to ARxWP PBX Main Menu.&#xD;
+Play altered PBX Main Menu Prompt, "Please listen to the following options in order to best direct your call. If you are a patient calling, please press 1. ..." (It should not say "Para español, oprima nueve.")&#xD;
+- If language is Spanish, route directly to agent.&#xD;
+&#xD;
+NOTE: Spanish prompt in this state is not a direct translation of English prompt, since in Spanish the call transfers to an agent, whereas in English it routes to the PBX Main Menu.&#xD;
+&#xD;
+NLIVR-1131 eComm Intent Capture&#xD;
+- If English, play prompt, then route to eCommerce.&#xD;
+   - If eComm Photo DNIS, go to M8555_PhotoMenu, and play edited prompt, "You can say Problems logging in, Order status, Or say Help me with something else." REMOVE "OK" from beginning of prompt.&#xD;
+   - If eComm Customer Service DNIS, go to M8530_MainMenu, and play edited prompt:&#xD;
+M8530_MainMenu_INI: "You can say Pharmacy, Photo, Other online orders - or say Help me with something else." REMOVE "Now" from beginning of the prompt.&#xD;
+- If Spanish, play prompt and route to agent.</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10110_XferIntentCapture" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, I didn't get that. Let's try this.</Text>
+					</TextContentList>
+					<DesignNotes>If ARxWP DNIS</DesignNotes>
+					<CoachingComments>Followed by PBX menu (different voice): "Please listen to the following options ..."</CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10110_XferIntentCapture" type="INI" additionalText="eCommPhoto" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, I didn't get that. Let's try this. [500ms pause]</Text>
+					</TextContentList>
+					<DesignNotes>If eComm Photo DNIS</DesignNotes>
+					<CoachingComments>Followed by eComm prompt "You can say Problems logging in, Order status, Or say Help me with something else. " (Remove "OK" in M8555_PhotoMenu_INI)</CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10110_XferIntentCapture" type="INI" additionalText="eComm" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry, I didn't get that. Let's try this. [500ms pause]</Text>
+					</TextContentList>
+					<DesignNotes>If eComm Customer Service DNIS</DesignNotes>
+					<CoachingComments>Followed by eComm prompt: "You can say Pharmacy, Photo, Other online orders - or say Help me with something else." (Remove "Now" in M8530_MainMenu_INI)</CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10110_XferIntentCapture" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento, no entendí. Permítame comunicarle con alguien que puede ayudarle.</Text>
+					</TextContentList>
+					<DesignNotes>If ARxWP DNIS</DesignNotes>
+					<CoachingComments>[English: Sorry, I didn't get that. Let me get someone to help you.]</CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10110_XferIntentCapture" type="INI" additionalText="eCommPhoto" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento, no entendí. Permítame comunicarle con alguien que puede ayudarle. Sólo para informarle, esta llamada será grabada.</Text>
+					</TextContentList>
+					<DesignNotes>If eComm Photo DNIS</DesignNotes>
+					<CoachingComments>[English: Sorry, I didn't get that. Let me get someone to help you. Just so you know, this call will be recorded.]</CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="10110_XferIntentCapture" type="INI" additionalText="eComm" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento, no entendí. Permítame comunicarle con alguien que puede ayudarle. Sólo para informarle, esta llamada será grabada.</Text>
+					</TextContentList>
+					<DesignNotes>If eComm Customer Service DNIS</DesignNotes>
+					<CoachingComments>[English: Sorry, I didn't get that. Let me get someone to help you. Just so you know, this call will be recorded.]</CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="10010_OpenPrompt" />
+				</FromStates>
+				<Conditions />
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="10120_BalanceRewardsSubDialog" type="SubDialogue" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<StateParameters repository="https://designrepo.voxgenhosted.com:18080/svn/walgreens" relativePath="/Walgreens/Modules/Balance%20Rewards.vui" revision="2363">
+				<StateParameter id="state_parameter_11560438136564" targetId="design_parameter_11560435217129" name="DNIS" notes="If Balance Rewards IVR DNIS, set to &quot;BalanceRewardsIVR&quot;&#xD;&#xA;if Welcome IVR DNIS, set to &quot;WelcomeIVR&quot;" type="INPUT" description="IVR that the caller dialled. Can be &quot;WelcomeIVR&quot; or &quot;BalanceRewardsIVR&quot;" />
+				<StateParameter id="state_parameter_21560438136564" targetId="design_parameter_11560435292305" name="ExitReason" notes="" type="OUTPUT" description="Possible values: BackToMenu" />
+				<StateParameter id="state_parameter_11561636306238" targetId="design_parameter_11561633623800" name="tag" notes="Set with the tag collected" type="INPUT" description="contains tag collected in WelcomeIVR OpenPrompt" />
+			</StateParameters>
+			<Prompts />
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="10040_EvalIntent" />
+					<State ref="10050_MainMenu" />
+					<State ref="10020_ConfirmIntent" />
+					<State ref="10010_OpenPrompt" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>if </Text>
+							<Reference targetType="STATE_PARAMETER" targetId="state_parameter_21560438136564" />
+							<Text> == "BackToMenu"&#xD;
+&#xD;
+// play _REE prompt in 10010_OpenPrompt</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="10010_OpenPrompt" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="10125_LocatorSubDialog" type="SubDialogue" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<StateParameters repository="https://designrepo.voxgenhosted.com:18080/svn/walgreens" relativePath="/Walgreens/Modules/LocatorModule.vui" revision="2270" />
+			<Prompts />
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="10040_EvalIntent" />
+					<State ref="10050_MainMenu" />
+				</FromStates>
+				<Conditions />
+				<Tests />
+			</Navigation>
+		</State>
+	</States>
+	<DesignParameters />
+	<VersionNotes>
+		<VersionNote changedStateName="10050_MainMenu" user="mboothroyd" date="02.03.2020">
+			<Comment>NLIVR-2021 HCC WelcomeIVR&#xD;
+Removed Healthcare Clinic option from Main Menu prompts and response conditions; renumbered remaining options</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="mboothroyd" date="02.03.2020">
+			<Comment>NLIVR-2021 HCC WelcomeIVR&#xD;
+Changed condition "tag == hcc, hcc_hours, immunization, flu_shot, physical" to go to 10055_HCCFAQ instead of to 10100_Xfer, and removed notes "set transfer to HCC IVR" and "Pass language setting"&#xD;
+Added tag == healthcare_records to above condition</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10055_HCCFAQ" user="mboothroyd" date="02.03.2020">
+			<Comment>NLIVR-2021 HCC WelcomeIVR&#xD;
+NEW STATE &amp; PROMPTS</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="mboothroyd" date="02.03.2020">
+			<Comment>NLIVR-2021 HCC WelcomeIVR&#xD;
+Added "or 10055" in prompt condition in _REE_A</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="StartHere" user="jcheuvront" date="29.01.2020">
+			<Comment>NLIVR-1826 Removed condition for ARxWP DNIS</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10001_ANILookup" user="jcheuvront" date="29.01.2020">
+			<Comment>NLIVR-1826 Removed state - no longer needed in WelcomeIVR</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10000_Welcome" user="jcheuvront" date="29.01.2020">
+			<Comment>NLIVR-1826 Removed ARxWP_INI prompt and conditional routing</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10005_WelcomeIntentCapture" user="jcheuvront" date="29.01.2020">
+			<Comment>NLIVR-1826 Removed ARxWP intent capture prompt and conditional indicators</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="jcheuvront" date="29.01.2020">
+			<Comment>NLIVR-1826 Removed ARxWP propmpt, tags and conditional routing</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10020_ConfirmIntent" user="jcheuvront" date="29.01.2020">
+			<Comment>NLIVR-1826 Removed ARxWP conditions and updated utility files</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10030_AckIntent" user="jcheuvront" date="29.01.2020">
+			<Comment>NLIVR-1826 Updated utility files to remove ARxWP acknowledgements</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="jcheuvront" date="29.01.2020">
+			<Comment>NLIVR-1826 Removed ARxWP condition and tags</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10115_ARxWPSubDialog" user="jcheuvront" date="29.01.2020">
+			<Comment>NLIVR-1826 Deleted ARxWP subdialog</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="jcheuvront" date="22.11.2019">
+			<Comment>Removed Spanish eComm NI1 prompt</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="jcheuvront" date="22.11.2019">
+			<Comment>Removed ec related tags from 2nd and 3rd conditions</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="jcheuvront" date="22.11.2019">
+			<Comment>Removed condition with ecomm tags and condition for "DNIS is WelcomeIVR &amp;&amp; tag == order status</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10000_Welcome" user="jcheuvront" date="22.11.2019">
+			<Comment>Removed condition DTMF-9 &amp;&amp; DNISPurpose == any of the eComm DNIS</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10000_Welcome" user="jcheuvront" date="22.11.2019">
+			<Comment>Removed ecomm photo and ecomm ini prompts</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="jcheuvront" date="22.11.2019">
+			<Comment>Removed condition DNIS is any of eCommerce &amp;&amp; tag == order_status</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="jcheuvront" date="22.11.2019">
+			<Comment>Removed condition tag == (delete_vague, record_vague, or privacy_act) &amp;&amp; DNISPurpose == eCommerce&#xD;
+</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10130_eCommerceSubDialog" user="jcheuvront" date="22.11.2019">
+			<Comment>Deleted ecomm subdialog</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10050_MainMenu" user="jcheuvront" date="22.11.2019">
+			<Comment>Updated prompts and conditions to remove ecomm changes to main menu</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10050_MainMenu" user="jcheuvront" date="22.11.2019">
+			<Comment>Updated Spanish prompts to remove ecomm option from main menu prompts</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10070_DeleteAccountDisambig" user="jcheuvront" date="18.11.2019">
+			<Comment>NLIVR-1762 Updated Spanish prompts</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10060_DataPrivacyFAQ" user="jcheuvront" date="18.11.2019">
+			<Comment>NLIVR-1762 Updated Spanish prompts</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="jcheuvront" date="18.11.2019">
+			<Comment>NLIVR-1762 Updated Spanish prompts</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10060_DataPrivacyFAQ" user="mboothroyd" date="12.11.2019">
+			<Comment>NLIVR-1762 Updated INI_A text per recording session</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10060_DataPrivacyFAQ" user="mboothroyd" date="07.11.2019">
+			<Comment>Added DTMF options to response conditions</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10060_DataPrivacyFAQ" user="mboothroyd" date="05.11.2019">
+			<Comment>NLIVR-1762 Updated _INI_A per legal to remove reference to selling data; and changed from "Beginning" to "As of"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="mboothroyd" date="05.11.2019">
+			<Comment>NLIVR-1762 In conditions going to 10030 and 10020, changed tags "CCPA, delete_account, records" to "privacy_act, delete_vague, record_vague"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="mboothroyd" date="05.11.2019">
+			<Comment>NLIVR-1762&#xD;
+Removed "BR_delete_account" from BR tags&#xD;
+Changed "tag == CCPA" to "tag == privacy_act &amp;&amp; DNIS == WelcomeIVR"&#xD;
+Changed "tag == delete_account, records" to "tag == (delete_vague or record_vague) &amp;&amp; DNIS == WelcomeIVR"&#xD;
+In condition routing to 10115_ARxWPSubDialog, added "delete_vague, record_vague, privacy_act"&#xD;
+New condition "tag == (delete_vague, record_vague, or privacy_act) &amp;&amp; DNISPurpose == BR"&#xD;
+New condition "tag == (delete_vague, record_vague, or privacy_act) &amp;&amp; DNISPurpose == eCommerce"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10070_DeleteAccountDisambig" user="mboothroyd" date="05.11.2019">
+			<Comment>NLIVR-1762 Changed from a Menu to Yes/No and changed prompts accordingly</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="jcheuvront" date="31.10.2019">
+			<Comment>NLIVR-1762  Added REE prompt for CCPA</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="jcheuvront" date="31.10.2019">
+			<Comment>NLIVR-1762 Added condition for tag == delete_account and records to route to new state 10070 disambiguation</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10070_DeleteAccountDisambig" user="jcheuvront" date="31.10.2019">
+			<Comment>NLIVR-1762 Created new state to disambiguate CCPA intent after delete account intent</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="jcheuvront" date="31.10.2019">
+			<Comment>NLIVR-1762 Added "BR_delete_account" tag for balance rewards</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="jcheuvront" date="30.10.2019">
+			<Comment>NLIVR-1762 Added CCPA tag to high and mid confidence tag conditions</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="jcheuvront" date="30.10.2019">
+			<Comment>NLIVR-1762 Added condition "Tag == CCPA" routing to new state 10060_DataPrivacyFAQ</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10060_DataPrivacyFAQ" user="jcheuvront" date="30.10.2019">
+			<Comment>NLIVR-1762 Created new state for FAQ playback and transfer to rep for more info</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="jcheuvront" date="01.08.2019">
+			<Comment>NLIVR-1372 Added "so how can I help you" to end of NI1 prompts</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10000_Welcome" user="jcheuvront" date="01.08.2019">
+			<Comment>NLIVR TBD - updated ARxWP_INI prompt to say "just so you know..." instead of "sometimes" regarding recording of calls.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="mboothroyd" date="01.08.2019">
+			<Comment>Added Spanish - _eComm_NI1</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10050_MainMenu" user="mboothroyd" date="01.08.2019">
+			<Comment>Updated Spanish prompt text per new recorded audio</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10000_Welcome" user="mboothroyd" date="01.08.2019">
+			<Comment>Added "Hi" to beginning of _eCommContactLens_INI per recorded audio</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="jcheuvront" date="31.07.2019">
+			<Comment>NLIVR-1597 Added Spanish only SLM tags&#xD;
+In high and mid conditions starting tag == (hcc, hcc_hours,..." added "flu_shot, physical, balancerewards"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="jcheuvront" date="31.07.2019">
+			<Comment>NLIVR-1597 Added Spanish only SLM tags - In condition starting "tag == hcc, hcc_hours...", added "flu_shot, physical"&#xD;
+- In condition starting "tag == balancerewards, BR_vague...", added "balancerewards"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="mboothroyd" date="22.07.2019">
+			<Comment>NLIVR-1372_Open prompt grammar WelcomeIVR&#xD;
+- In Notes, added "NOTE: BR_recent_transactions is not currently in the SLM and is therefore not testable"&#xD;
+- In condition starting "tag == (hcc, hcc_hours..." with high confidence, removed: flu_shot, physical, balancerewards, return_call_prescriber&#xD;
+- In condition starting "tag == (hcc, hcc_hours..." with mid confidence, changed "BR_recent_transactions_points" to "BR_recent_transactions" and removed: flu_shot, physical, balancerewards, return_call_prescriber&#xD;
+</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="mboothroyd" date="22.07.2019">
+			<Comment>NLIVR-1372_Open prompt grammar WelcomeIVR&#xD;
+- In condition starting "tag == hcc, hcc_hours...", removed "flu_shot, physical"&#xD;
+- In condition starting "tag == balancerewards, BR_vague...", removed "balancerewards"&#xD;
+- In condition starting "tag == order_status, refill...", removed "return_call_prescriber"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="jcheuvront" date="22.07.2019">
+			<Comment>NLIVR-1375 updated conditions for new NLU tags - removed tags not identified</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="mboothroyd" date="17.07.2019">
+			<Comment>Added "Así que ¿cómo puedo ayudarle?" to Spanish prompt  _BalanceRewards_NI1&#xD;
+CHANGED PROMPT</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="dite" date="15.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): added ec-related tags to second and third conditions</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="dite" date="15.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): &#xD;
+&#xD;
+1) renamed eC_* tags as ec_*&#xD;
+2) added condition for "DNIS is WelcomeIVR &amp;&amp; tag == order_status"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10000_Welcome" user="dite" date="15.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): added condition "DTMF-9 &amp;&amp; DNISPurpose == any of the eComm DNIS" to transfer immediately to eComm module callers who switched to Spanish</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10000_Welcome" user="dite" date="11.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): Added eCommPhoto_INI and eComm_INI prompts&#xD;
+&#xD;
+CAN REUSE AUDIO FROM WelcomeIntentCapture STATE</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="dite" date="11.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): added _eComm_NI1&#xD;
+&#xD;
+NEW PROMPT&#xD;
+&#xD;
+Change condition for _REE prompt (added when coming from 10130)</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="dite" date="11.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): added condition to handle eComm tags</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10130_eCommerceSubDialog" user="dite" date="11.07.2019">
+			<Comment>NLIVR-1420 (eComm modularization): New State</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10050_MainMenu" user="jcheuvront" date="11.07.2019">
+			<Comment>NLIVR-1244 Updates to directed dialog to include eComm</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="mboothroyd" date="11.07.2019">
+			<Comment>NLIVR-568 Balance Rewards &#xD;
+Added Spanish prompts in _REE and _BalanceRewards_NI1</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="jcheuvront" date="08.07.2019">
+			<Comment>NLIVR-1375 updated ARxWP tags that we will confirm/acknowledge</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10020_ConfirmIntent" user="jcheuvront" date="08.07.2019">
+			<Comment>NLIVR-1375 Updated concat strategy with ARxWP confirmations</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10030_AckIntent" user="jcheuvront" date="08.07.2019">
+			<Comment>NLIVR-1375 Updated concat strategy with ARxWP acknowledge prompts</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="jcheuvront" date="08.07.2019">
+			<Comment>NLIVR-1375 Updated Eval Intents for ARxWP</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="mboothroyd" date="08.07.2019">
+			<Comment>Changed locator tags to go to new 10125_LocatorSubDialog instead of to 10100_Xfer (cleanup)</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10050_MainMenu" user="mboothroyd" date="08.07.2019">
+			<Comment>Changed locator option to go to new 10125_LocatorSubDialog instead of to 10100_Xfer (cleanup)</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10125_LocatorSubDialog" user="mboothroyd" date="08.07.2019">
+			<Comment>New subdialog for routing to Locator (cleanup)</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="mboothroyd" date="08.07.2019">
+			<Comment>NLIVR-841 ARxWP&#xD;
+In condition starting "tag == order_status" and ending "&amp; ARxWP DNIS", changed "ARxWP DNIS" to "DNISPurpose=ARX" (per request from Deepa)</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="mboothroyd" date="08.07.2019">
+			<Comment>NLIVR-841 ARxWP&#xD;
+In condition "any other tag &amp; ARxWP DNIS", changed "&amp; ARxWP DNIS" to "DNISPurpose=ARX"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10020_ConfirmIntent" user="mboothroyd" date="08.07.2019">
+			<Comment>NLIVR-596 Balance Rewards Tags&#xD;
+- In condition "No (Second Time) / DTMF-2 &amp; Balance Rewards DNIS", changed "Balance Rewards DNIS" to DNISPurpose=BR&#xD;
+- New condition "FAILURE &amp; DNISPurpose=BR"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="mboothroyd" date="08.07.2019">
+			<Comment>NLIVR-596 Balance Rewards Tags&#xD;
+- In condition "any other tag &amp; Balance Rewards DNIS", changed "Balance Rewards DNIS" to DNISPurpose=BR&#xD;
+- In FAILURE condition for Balance Rewards, changed "DNIS is Balance Rewards" to "DNISPurpose=BR"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10000_Welcome" user="mboothroyd" date="08.07.2019">
+			<Comment>NLIVR-841 ARxWP&#xD;
+- Changed prompt conditon "If ARxWP DNIS" to "If DNISPurpose=ARX"&#xD;
+- Changed branch condition "DTMF-9 and ARxWP DNIS" to "DTMF-9 and DNISPurpose=ARX"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="StartHere" user="mboothroyd" date="08.07.2019">
+			<Comment>NLIVR-842 ARxWP Language Preference&#xD;
+New condition If DNISPurpose=ARX</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10001_ANILookup" user="mboothroyd" date="08.07.2019">
+			<Comment>NLIVR-842 ARxWP Language Preference&#xD;
+New state</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10000_Welcome" user="mboothroyd" date="08.07.2019">
+			<Comment>NLIVR-842 ARxWP Language Preference&#xD;
+- Added Spanish Welcome prompt for ARxWP&#xD;
+- New condition "DTMF-9 and DNISPurpose=ARX &amp; language = Spanish"&#xD;
+- To condition "DTMF-9 and DNISPurpose=ARX" added "&amp; language = English"&#xD;
+- New condition "If DNISPurpose=ARX &amp; language = Spanish"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10020_ConfirmIntent" user="mboothroyd" date="08.07.2019">
+			<Comment>NLIVR-841 ARxWP&#xD;
+In condition "No (Second Time) / DTMF-2 &amp; ARxWP DNIS", changed "&amp; ARxWP DNIS" to "DNISPurpose=ARX"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="mboothroyd" date="08.07.2019">
+			<Comment>NLIVR-842 ARxWP Language Preference&#xD;
+New condition"DTMF-9 &amp; DNISPurpose=ARX"&#xD;
+(This condition should have been created earlier - adding it with NLIVR-842)</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="dite" date="27.06.2019">
+			<Comment>NLIVR-596: &#xD;
+&#xD;
+1) added condition "any other tag &amp; Balance Rewards DNIS"&#xD;
+&#xD;
+2) added BR tags to second and third conditions (BR_vague, BR_transfer, BR_account_balance, BR_missing_points, BR_recent_transactions)&#xD;
+&#xD;
+3) added failure condition "FAILURE (2nd No-Input) &amp;&amp; DNIS is Balance Rewards"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10020_ConfirmIntent" user="dite" date="27.06.2019">
+			<Comment>NLIVR-596: &#xD;
+&#xD;
+1) Added condition "No (Second Time)" for Balance Rewards DNIS&#xD;
+&#xD;
+2) Added State Note about using TWO sets of utilities in this state</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10030_AckIntent" user="dite" date="27.06.2019">
+			<Comment>NLIVR-596: Added State Note about using TWO sets of utilities in this state</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10120_BalanceRewardsSubDialog" user="dite" date="27.06.2019">
+			<Comment>NLIVR-596: updated revision of Balance Rewards module which now has a new input parameter (tag)</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10000_Welcome" user="jcheuvront" date="14.06.2019">
+			<Comment>NLIVR-1394 Added condition for ARxWP Spanish Routing</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="jcheuvront" date="14.06.2019">
+			<Comment>NLIVR-1394 Removed NI1 prompt for ARxWP</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="mboothroyd" date="14.06.2019">
+			<Comment>NLIVR-1394 - ARxWP Spanish routing&#xD;
+Added note that there is no ARxWP Spanish NI1  prompt here</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10110_XferIntentCapture" user="mboothroyd" date="14.06.2019">
+			<Comment>NLIVR-1131 eComm Intent Capture&#xD;
+Updated Spanish verbiage in _eCommPhoto_INI and _eComm_INI</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10000_Welcome" user="jcheuvront" date="14.06.2019">
+			<Comment>NLIVR-1349 updated next state for ARxWP Spanish callers</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="dite" date="13.06.2019">
+			<Comment>NLIVR-568 (Balance Rewards): Added &#xD;
+1) Reentry prompt _REE&#xD;
+2) Specific NI1 prompt</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10000_Welcome" user="dite" date="13.06.2019">
+			<Comment>NLIVR-568 (Balance Rewards): Added specific greetings prompt</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="dite" date="13.06.2019">
+			<Comment>NLIVR-568 (Balance Rewards): changed destination for balancerewards tag</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10050_MainMenu" user="dite" date="13.06.2019">
+			<Comment>NLIVR-568 (Balance Rewards): changed destination for DTMF-3 condition (balance rewards)</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10020_ConfirmIntent" user="jcheuvront" date="04.06.2019">
+			<Comment>Added 2nd NI and Failure conditions for ARxWP</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="StartHere" user="mboothroyd" date="04.06.2019">
+			<Comment>NLIVR-1132 Home Delivery - intent capture&#xD;
+Backed out notes</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10005_WelcomeIntentCapture" user="mboothroyd" date="04.06.2019">
+			<Comment>NLIVR-1132 Home Delivery - intent capture&#xD;
+Backed out prompt (Eng only) and routing condition</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10110_XferIntentCapture" user="mboothroyd" date="04.06.2019">
+			<Comment>NLIVR-1132 Home Delivery - intent capture&#xD;
+- Backed out notes&#xD;
+- Backed out Eng &amp; Spn prompts</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="mboothroyd" date="03.06.2019">
+			<Comment>Locator&#xD;
+Added tags "store_address", "store_directions"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="mboothroyd" date="03.06.2019">
+			<Comment>Locator&#xD;
+Added "store_address, store_directions" to condition "tag == locator"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="mboothroyd" date="03.06.2019">
+			<Comment>ARxWP&#xD;
+- Added tags: refill, billing, insurance, adv_therapy&#xD;
+- Added note to condition "any other tag &amp; ARxWP DNIS"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="StartHere" user="mboothroyd" date="03.06.2019">
+			<Comment>NLIVR-1131/1132&#xD;
+Updated DNISs for eComm and Home Delivery intent capture</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10005_WelcomeIntentCapture" user="mboothroyd" date="03.06.2019">
+			<Comment>NLIVR-1131 eComm Intent Capture&#xD;
+New prompt eCommPhoto_INI&#xD;
+NEW PROMPT</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10110_XferIntentCapture" user="mboothroyd" date="03.06.2019">
+			<Comment>NLIVR-1131 eComm Intent Capture&#xD;
+- Changed notes on what to play when returning to eComm app&#xD;
+- Added prompt eCommPhoto_INI&#xD;
+- Changed prompt eComm_INI&#xD;
+NEW PROMPTS</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="mboothroyd" date="30.05.2019">
+			<Comment>NLIVR-1175 ARxWP Intent Capture Spanish&#xD;
+Removed "in DTMF" from note "Any NM in DTMF will be tagged 'vague'."</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="jcheuvront" date="30.05.2019">
+			<Comment>updated order_status condition for ARxWP DNIS and language setting</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="jcheuvront" date="30.05.2019">
+			<Comment>Updated conditon for ARxWP DNIS to include a set of valid intents we can use for routing the call</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10005_WelcomeIntentCapture" user="mboothroyd" date="30.05.2019">
+			<Comment>NLIVR-1131 eComm / NLIVR-1132 Home Delivery - Intent Capture&#xD;
+- Added prompt text for eComm and Home Deivery&#xD;
+- New condition "DTMF-* &amp; Home Delivery DNIS"&#xD;
+- In condition DTMF-9, added "&amp; (ARxWP or eComm DNIS)"&#xD;
+NEW PROMPTS&#xD;
+NEW GRAMMAR</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10110_XferIntentCapture" user="mboothroyd" date="30.05.2019">
+			<Comment>NLIVR-1131 eComm / NLIVR-1132 Home Delivery - Intent Capture&#xD;
+- Added "Always" to note "Pass in language selection"&#xD;
+- Added condition "If ARxWP DNIS" to INI prompt&#xD;
+- New prompts for eComm and Home Delivery&#xD;
+NEW PROMPTS</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="StartHere" user="mboothroyd" date="29.05.2019">
+			<Comment>Added notes for Comm &amp; Home Delivery intent capture [DNISs TBD]</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10005_WelcomeIntentCapture" user="mboothroyd" date="29.05.2019">
+			<Comment>NLIVR-1131 eComm / NLIVR-1132 Home Delivery - Intent Capture&#xD;
+Added Welcome prompts for eComm &amp; Home Delivery intent capture [TEXT TBD]&#xD;
+NEW PROMPTS</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10110_XferIntentCapture" user="mboothroyd" date="29.05.2019">
+			<Comment>NLIVR-1131 eComm / NLIVR-1132 Home Delivery - Intent Capture&#xD;
+Added notes for Comm &amp; Home Delivery intent capture [notes TBD]</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="mboothroyd" date="28.05.2019">
+			<Comment>ARxWP&#xD;
+- New condition, "tag == order_status &amp; ARxWP DNIS"&#xD;
+- New condition, "Otherwise"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="mboothroyd" date="28.05.2019">
+			<Comment>ARxWP&#xD;
+- Updated examples in prompt _ARxWP_NI1.&#xD;
+- In two conditions starting "tag == (hcc, hcc_hours,...", added "order_status"&#xD;
+- Changed condition "any tag &amp; DNIS is ARxWP" to "any other tag &amp; ARxWP DNIS" and moved it down</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10000_Welcome" user="mboothroyd" date="24.05.2019">
+			<Comment>ARxWP Greeting:&#xD;
+Changed ARxWP welcome verbiage from "This call may be recorded" to "Sometimes we record these calls."</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10005_WelcomeIntentCapture" user="mboothroyd" date="24.05.2019">
+			<Comment>NLIVR-1175 ARxWP Intent Capture Spanish&#xD;
+Changed ARxWP welcome verbiage from "This call may be recorded" to "Sometimes we record these calls."</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10005_WelcomeIntentCapture" user="mboothroyd" date="22.05.2019">
+			<Comment>NLIVR-1175 ARxWP Intent Capture Spanish&#xD;
+Backed out Spanish version of Welcome prompt</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10000_Welcome" user="mboothroyd" date="22.05.2019">
+			<Comment>NLIVR-1243 Welcome IVR in Spanish&#xD;
+Backed out Spanish version of Welcome prompt</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10005_WelcomeIntentCapture" user="mboothroyd" date="20.05.2019">
+			<Comment>Removed [500 ms] from middle of prompt</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10110_XferIntentCapture" user="mboothroyd" date="20.05.2019">
+			<Comment>Added English translation in Spanish localization, coaching comments</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10005_WelcomeIntentCapture" user="mboothroyd" date="17.05.2019">
+			<Comment>NLIVR-1175 ARxWP Intent Capture Spanish&#xD;
+- Reverted English prompt to say "Alliance Rx Walgreens Prime"&#xD;
+- Changed filename in English &amp; Spanish from _INI to _ARxWP_INI</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="mboothroyd" date="17.05.2019">
+			<Comment>Added "DTMF-9" to allow language switch in this DM</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10000_Welcome" user="mboothroyd" date="17.05.2019">
+			<Comment>Changed the note for DTMF-9 to be generic instead of saying to switch to Spanish</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10005_WelcomeIntentCapture" user="mboothroyd" date="17.05.2019">
+			<Comment>Changed the note for DTMF-9 to be generic instead of saying to switch to Spanish</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10110_XferIntentCapture" user="mboothroyd" date="17.05.2019">
+			<Comment>Changed note to indicate that if language is Spanish, route directly to agent.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10000_Welcome" user="mboothroyd" date="16.05.2019">
+			<Comment>NLIVR-1243 Welcome IVR in Spanish&#xD;
+Changed DTMF-9 to indicate routing to 10010 instead of to 10050</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10050_MainMenu" user="mboothroyd" date="16.05.2019">
+			<Comment>NLIVR-1243 Welcome IVR in Spanish&#xD;
+Removed prompt 10050_MainMenu_INI - this was for Spanish only and is no longer needed.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10100_Xfer" user="mboothroyd" date="16.05.2019">
+			<Comment>NLIVR-1243 Welcome IVR in Spanish&#xD;
+Added note to pass language setting.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10105_XferOnError" user="mboothroyd" date="16.05.2019">
+			<Comment>NLIVR-1243 Welcome IVR in Spanish&#xD;
+Added note to pass language setting.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10005_WelcomeIntentCapture" user="mboothroyd" date="16.05.2019">
+			<Comment>NLIVR-1175 ARxWP Intent Capture Spanish&#xD;
+- Changed from Presentation to Menu state&#xD;
+- In English INI prompt, added option to select Spanish (Para continuar en español...)&#xD;
+- Added Spanish version of INI prompt&#xD;
+NEW PROMPTS &amp; GRAMMAR</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10110_XferIntentCapture" user="mboothroyd" date="16.05.2019">
+			<Comment>NLIVR-1175 ARxWP Intent Capture Spanish&#xD;
+- Added notes&#xD;
+- Added Spanish prompt&#xD;
+NEW PROMPT&#xD;
+</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="StartHere" user="jcheuvront" date="07.05.2019">
+			<Comment>Leaving intent capture logic but removed ARxWP conditions</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10000_Welcome" user="jcheuvront" date="07.05.2019">
+			<Comment>Added ARxWP welcome prompt</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="jcheuvront" date="07.05.2019">
+			<Comment>Added ARxWP logic - conditions and failure</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="mboothroyd" date="09.04.2019">
+			<Comment>NLIVR-641 Welcome IVR - Locator&#xD;
+Added "locator" tag to the two conditions for "tag == (hcc, hcc_hours...)"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="mboothroyd" date="09.04.2019">
+			<Comment>NLIVR-641 Welcome IVR - Locator&#xD;
+New condition "tag == locator"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10050_MainMenu" user="mboothroyd" date="09.04.2019">
+			<Comment>NLIVR-641 Welcome IVR - Locator&#xD;
+Added note "Pass language setting" in condition "DTMF-1"</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10100_Xfer" user="mboothroyd" date="09.04.2019">
+			<Comment>NLIVR-641 Welcome IVR - Locator&#xD;
+Added note</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="StartHere" user="mboothroyd" date="19.03.2019">
+			<Comment>NLIVR-685 ARxWP intent catpure&#xD;
+Changed second DNIS from 8007064365 to 8552442555</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10005_WelcomeIntentCapture" user="mboothroyd" date="25.02.2019">
+			<Comment>NLIVR-685 ARxWP Intent Capture Setup Strategy&#xD;
+Removed extra prompt condition (both DNISs play the same welcome prompt)</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10005_WelcomeIntentCapture" user="mboothroyd" date="21.02.2019">
+			<Comment>NLIVR-685 ARxWP Intent Capture Setup Strategy&#xD;
+New state to play temporary greeting prompt</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10110_XferIntentCapture" user="mboothroyd" date="21.02.2019">
+			<Comment>NLIVR-685 ARxWP Intent Capture Setup Strategy&#xD;
+New state to route to ARxWP.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="dite" date="13.02.2019">
+			<Comment>Added note to pass language setting to HCC IVR</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10050_MainMenu" user="dite" date="13.02.2019">
+			<Comment>Added note to pass language setting to HCC IVR</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10100_Xfer" user="dite" date="12.02.2019">
+			<Comment>Removed Xfer_IVR_INI because we're integrating straight into the IVRs, so no need to play a transfer message&#xD;
+&#xD;
+</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10010_OpenPrompt" user="dite" date="12.02.2019">
+			<Comment>Added more HCC-related tags (hcc_hours, flu_shot, immunization, physical)</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="dite" date="12.02.2019">
+			<Comment>Added more HCC-related tags (hcc_hours, flu_shot, immunization, physical)</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="StartHere" user="ageorge" date="10.11.2017">
+			<Comment>Initial draft.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10055_HCCFAQ" user="mboothroyd" date="03.03.2020">
+			<Comment>NLIVR-2021 HCC WelcomeIVR&#xD;
+Changed prompt condition tag == healthcare_records to rx_record</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10040_EvalIntent" user="mboothroyd" date="03.03.2020">
+			<Comment>NLIVR-2021 HCC WelcomeIVR&#xD;
+Changed tag healthcare_records to rx_record</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10055_HCCFAQ" user="mboothroyd" date="10.03.2020">
+			<Comment>NLIVR-2021 HCC WelcomeIVR&#xD;
+Minor prompt text updates in _CLinics_INI_A, _Services_INI_A, and _Records_INI_A per recording session.</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10000_Welcome" user="mboothroyd" date="16.03.2020">
+			<Comment>NLIVR-2149 Update Welcome IVR Greeting&#xD;
+Updated prompts in _BalanceRewards_INI and _INI</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10055_HCCFAQ" user="mboothroyd" date="18.03.2020">
+			<Comment>NLIVR-2149 Update Welcome IVR prompts&#xD;
+Updated prompt text in _Clinics_INI_A and _Records_INI_A (English &amp; Spanish)</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10100_Xfer" user="mboothroyd" date="24.03.2020">
+			<Comment>NLIVR-2222 Update Welcome IVR Prompts &#xD;
+Updated prompt verbiage&#xD;
+CHANGED PROMPT</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10105_XferOnError" user="mboothroyd" date="24.03.2020">
+			<Comment>NLIVR-2222 Update Welcome IVR Prompts &#xD;
+Updated prompt verbiage&#xD;
+CHANGED PROMPT</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="10000_Welcome" user="mboothroyd" date="24.03.2020">
+			<Comment>NLIVR-2222 Update Welcome IVR Prompts &#xD;
+Updated prompt verbiage in _INI and _BalanceRewards_INI - English only&#xD;
+CHANGED PROMPTS</Comment>
+		</VersionNote>
+	</VersionNotes>
+</Design>
+
