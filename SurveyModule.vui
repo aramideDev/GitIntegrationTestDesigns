@@ -1,0 +1,1819 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?resourcesPath .resources/SurveyModule?>
+<?audioPath .resources/SurveyModule?>
+<Design version="3.3.4" type="BOTH" locale="en-GB">
+	<Languages>
+		<Language>en-US</Language>
+		<Language>es-PR</Language>
+		<Language>es-SP</Language>
+	</Languages>
+	<Variants>
+		<Variant>Female English</Variant>
+		<Variant>Female Puerto Rican</Variant>
+		<Variant>Female Spanish</Variant>
+	</Variants>
+	<LanguagesFilter>
+		<Language>es-SP</Language>
+	</LanguagesFilter>
+	<VariantsFilter>
+		<Variant>Female Spanish</Variant>
+	</VariantsFilter>
+	<States>
+		<State name="StartHere" type="AppInit" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>==ERROR HANDLING==&#xD;
+&#xD;
+In survey question states there will be a maximum of 1 error prompt (NM or NI) in any state after which a 2nd error will result in the Failure procedure for that state. &#xD;
+&#xD;
+==UNIVERSAL COMMANDS==&#xD;
+&#xD;
+'Representative' (and commonly used synonyms) and DTMF-0 will NOT be recognised in this module</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts />
+			<Grammars />
+			<Navigation>
+				<FromStates />
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Start the app</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6000_EligibilityLookup" />
+						<Language></Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="6000_EligibilityLookup" type="Data Transaction" status="Review">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>Determines whether a survey should be offered in this call, and if so, how many questions the caller should be asked (1 or multiple)</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts />
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="StartHere" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Caller should hear survey &amp; 1 question</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6010_CSATSurveyIntro" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Caller should hear survey &amp; &gt;1 question</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6030_CSATSurveyOptIn" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Otherwise&#xD;
+Set </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11545017070688" />
+							<Text> = ANINotEligible</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6099_ExitModule" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Caller should hear survey &amp; 1 question</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6010_CSATSurveyIntro" />
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Caller should hear survey &amp; &gt;1 question</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6030_CSATSurveyOptIn" />
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Otherwise&#xD;
+Set </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11545017070688" />
+							<Text> = ANINotEligible</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6099_ExitModule" />
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE&#xD;
+&#xD;
+Set </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11545017070688" />
+							<Text> = LookupFailure</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6099_ExitModule" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE&#xD;
+&#xD;
+Set </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11545017070688" />
+							<Text> = LookupFailure</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6099_ExitModule" />
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="6010_CSATSurveyIntro" type="Presentation" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>Play introductory prompt. The app will use the "FromState" parameter to determine which prompt to play.</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6010_CSATSurveyIntro" type="INI" additionalText="Transfer" level="" freeText="" />
+					<TextContentList>
+						<Text>Okay, I can get someone to help you. Before I transfer you, I just have a quick question about your experience using the automated system today. [600 ms pause]</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6010_CSATSurveyIntro" type="INI" additionalText="Transfer" level="" freeText="" />
+					<TextContentList>
+						<Text>Bien, puedo comunicarle con alguien que le ayude. Antes de transferirle, tengo una pregunta breve sobre su experiencia usando el sistema automatizado el día de hoy. [600 ms pause]</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6010_CSATSurveyIntro" type="INI" additionalText="Transfer" level="" freeText="" />
+					<TextContentList>
+						<Text>Bien, puedo buscar a alguien para que lo ayude. Antes de transferirlo, tengo una pregunta rápida sobre su experiencia al usar el sistema automatizado en el día de hoy. [600 ms pause]</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-PR</Language>
+					<Variants>
+						<Variant>Female Puerto Rican</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="6000_EligibilityLookup" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Always</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6015_CSATSurveyQ1" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Always</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6015_CSATSurveyQ1" />
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="6015_CSATSurveyQ1" type="Menu" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>See StartHere for description of error handling</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6015_CSATSurveyQ1" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Using a scale from 1 to 5 - where 1 is “not at all satisfied” and 5 is “extremely satisfied”, how satisfied were you with your overall experience?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6015_CSATSurveyQ1" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry... Using a scale where 1 is the lowest rating and 5 is the highest, how would you rate your overall experience while using the automated system today?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6015_CSATSurveyQ1" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Let's use the keypad. Using a scale where 1 is the lowest rating and 5 is the highest, how would you rate your overall experience while using the automated system today?	</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6015_CSATSurveyQ1" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Usando una escala del 1 al 5 en la que 1 es “nada satisfecho” y 5 es “sumamente satisfecho”, ¿qué tan satisfecho o satisfecha estuvo usted con su experiencia en general?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6015_CSATSurveyQ1" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento… Usando una escala en la que 1 es la clasificación más baja y 5 es la clasificación más alta, ¿cómo calificaría usted su experiencia en general al usar el sistema automatizado el día de hoy?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6015_CSATSurveyQ1" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Usemos el teclado. Usando una escala en la que 1 es la clasificación más baja y 5 es la clasificación más alta, ¿cómo calificaría usted su experiencia en general al usar el sistema automatizado el día de hoy?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6015_CSATSurveyQ1" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Usando una escala del 1 al 5 en la que el 1 representa “no está satisfecho en lo absoluto” y 5 representa “extremadamente satisfecho”, ¿cuán satisfecho estuvo con su experiencia en general?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-PR</Language>
+					<Variants>
+						<Variant>Female Puerto Rican</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6015_CSATSurveyQ1" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento... Usando una escala en la que el 1 es la puntuación más baja y el 5 es la puntuación más alta, ¿cómo calificaría su experiencia en general al usar el sistema automatizado en el día de hoy?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-PR</Language>
+					<Variants>
+						<Variant>Female Puerto Rican</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6015_CSATSurveyQ1" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Vamos a usar el teclado. Usando una escala en la que el 1 es la puntuación más baja y el 5 es la puntuación más alta, ¿cómo calificaría su experiencia en general al usar el sistema automatizado en el día de hoy? </Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-PR</Language>
+					<Variants>
+						<Variant>Female Puerto Rican</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="6010_CSATSurveyIntro" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>If VALID INPUT between 1 and 5 (speech or DTMF)</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6020_CSATSurveyEnd" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>If VALID INPUT between 1 and 5 (speech or DTMF)</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6020_CSATSurveyEnd" />
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE (second error)</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6080_SurveyMaxErrors" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE (second error)</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6080_SurveyMaxErrors" />
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="6020_CSATSurveyEnd" type="Presentation" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6020_CSATSurveyEnd" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Thanks for your feedback. [600 ms pause]</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6020_CSATSurveyEnd" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Gracias por su opinión. [600 ms pause]</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6020_CSATSurveyEnd" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Gracias por su insumo. [600 ms pause]</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-PR</Language>
+					<Variants>
+						<Variant>Female Puerto Rican</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="6015_CSATSurveyQ1" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Always&#xD;
+Set </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11545017070688" />
+							<Text> = SurveyComplete</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6099_ExitModule" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Always&#xD;
+Set </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11545017070688" />
+							<Text> = SurveyComplete</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6099_ExitModule" />
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="6030_CSATSurveyOptIn" type="Menu" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6030_CSATSurveyOptIn" type="INI" additionalText="Transfer" level="" freeText="" />
+					<TextContentList>
+						<Text>Okay, I can get someone to help. Before I transfer you, I just have a few questions about your experience using the automated system today. It’ll only take a minute or two. Is that okay?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6030_CSATSurveyOptIn" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry... Would you like to take the survey? Just say yes or no.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6030_CSATSurveyOptIn" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Would you like to take the survey? Just say yes or no.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6030_CSATSurveyOptIn" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Bien, puedo comunicarle con alguien que le ayude. Antes de transferirle, tengo unas cuantas preguntas sobre su experiencia usando el sistema automatizado el día de hoy. Sólo tomará uno o dos minutos. ¿Está bien?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6030_CSATSurveyOptIn" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento… ¿Quiere participar en la encuesta? Sólo diga sí o no.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6030_CSATSurveyOptIn" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>¿Quiere participar en la encuesta? Sólo diga sí o no.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6030_CSATSurveyOptIn" type="INI" additionalText="Transfer" level="" freeText="" />
+					<TextContentList>
+						<Text>Bien, puedo buscar a alguien para que lo ayude. Antes de transferirlo, tengo unas pocas preguntas sobre su experiencia al usar el sistema automatizado en el día de hoy. Solo tomarán uno o dos minutos. ¿Podemos hacerlo?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-PR</Language>
+					<Variants>
+						<Variant>Female Puerto Rican</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6030_CSATSurveyOptIn" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento... ¿Desea tomar la encuesta? Solo diga sí o no.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-PR</Language>
+					<Variants>
+						<Variant>Female Puerto Rican</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6030_CSATSurveyOptIn" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>¿Desea tomar la encuesta? Solo diga sí o no.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-PR</Language>
+					<Variants>
+						<Variant>Female Puerto Rican</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="6000_EligibilityLookup" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Yes / DTMF-1</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6040_CSATMultiQ1" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>No / DTMF-2</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6035_CSATSurveyDecline" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Yes / DTMF-1</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6040_CSATMultiQ1" />
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>No / DTMF-2</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6035_CSATSurveyDecline" />
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6080_SurveyMaxErrors" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6080_SurveyMaxErrors" />
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="6035_CSATSurveyDecline" type="Presentation" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6035_CSATSurveyDecline" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Ok, no problem. [800ms pause]</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6035_CSATSurveyDecline" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Está bien, no es ningún problema.</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6035_CSATSurveyDecline" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Bien, no hay problema. [800ms pause]</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-PR</Language>
+					<Variants>
+						<Variant>Female Puerto Rican</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="6030_CSATSurveyOptIn" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Always&#xD;
+Set </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11545017070688" />
+							<Text> = SurveyDecline</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6099_ExitModule" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Always&#xD;
+Set </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11545017070688" />
+							<Text> = SurveyDecline</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6099_ExitModule" />
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="6040_CSATMultiQ1" type="Menu" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6040_CSATMultiQ1" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Great. Here’s the first question. Using a scale where 1 is the lowest rating and 5 is the highest, how easy was it to use the system?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6040_CSATMultiQ1" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry... On a scale where 1 lowest and 5 is highest, how easy was it to use the automated system today?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6040_CSATMultiQ1" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>On a scale where 1 is lowest and 5 is highest, how easy was it to use the automated system today?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6040_CSATMultiQ1" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Qué bueno. Esta es la primera pregunta. Usando una escala en la que 1 es la clasificación más baja y 5 es la clasificación más alta, ¿qué tan fácil fue usar el sistema?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6040_CSATMultiQ1" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento… Usando una escala en la que 1 es la clasificación más baja y 5 es la clasificación más alta, ¿qué tan fácil fue usar el sistema automatizado el día de hoy?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6040_CSATMultiQ1" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>En una escala en la que 1 es la clasificación más baja y 5 es la clasificación más alta, ¿qué tan fácil fue usar el sistema automatizado el día de hoy?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6040_CSATMultiQ1" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Muy bien. Esta es la primera pregunta. Usando una escala en la que el 1 es la puntuación más baja y el 5 es la puntuación más alta, ¿cuán fácil fue usar el sistema?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-PR</Language>
+					<Variants>
+						<Variant>Female Puerto Rican</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6040_CSATMultiQ1" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento... En una escala en la que el 1 es lo más bajo y el 5 es lo más alto, ¿cuán fácil fue usar el sistema automatizado en el día de hoy?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-PR</Language>
+					<Variants>
+						<Variant>Female Puerto Rican</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6040_CSATMultiQ1" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>En una escala en la que el 1 es lo más bajo y el 5 es lo más alto, ¿cuán fácil fue usar el sistema automatizado en el día de hoy?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-PR</Language>
+					<Variants>
+						<Variant>Female Puerto Rican</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="6030_CSATSurveyOptIn" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>If VALID INPUT between 1 and 5 (speech or DTMF)</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6045_CSATMultiQ2" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>If VALID INPUT between 1 and 5 (speech or DTMF)</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6045_CSATMultiQ2" />
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE (second error)</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6080_SurveyMaxErrors" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE (second error)</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6080_SurveyMaxErrors" />
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="6045_CSATMultiQ2" type="Menu" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6045_CSATMultiQ2" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Thanks. And using the same scale where 1 is the lowest and 5 is the highest, how likely would you be to use this system again?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments>Caller responded 1-5 to a previous survey question.</CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6045_CSATMultiQ2" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry... From 1 to 5, where 1 is lowest and 5 is highest, how likely would you be to use the automated system again?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6045_CSATMultiQ2" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>From 1 to 5, where 1 is lowest and 5 is highest, how likely would you be to use the automated system again?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6045_CSATMultiQ2" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Gracias. Y usando una escala en la que 1 es la clasificación más baja y 5 es la clasificación más alta, ¿qué probabilidades hay de que usted use este sistema de nuevo?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6045_CSATMultiQ2" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento… Del 1 al 5, en donde 1 es la clasificación más baja y 5 es la clasificación más alta, ¿qué probabilidades hay de que usted use el sistema automatizado de nuevo?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6045_CSATMultiQ2" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Del 1 al 5, en donde 1 es la clasificación más baja y 5 es la clasificación más alta, ¿qué probabilidades hay de que usted use el sistema automatizado de nuevo?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6045_CSATMultiQ2" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Gracias. Y usando la misma escala en la que el 1 es lo más bajo y el 5 es lo más alto, ¿cuán probable sería que usted use este sistema nuevamente?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments>Caller responded 1-5 to a previous survey question.</CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-PR</Language>
+					<Variants>
+						<Variant>Female Puerto Rican</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6045_CSATMultiQ2" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento... Del 1 al 5, donde el 1 es lo más bajo y el 5 es lo más alto, ¿cuán probable sería que usted use el sistema automatizado nuevamente?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-PR</Language>
+					<Variants>
+						<Variant>Female Puerto Rican</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6045_CSATMultiQ2" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Del 1 al 5, donde el 1 es lo más bajo y el 5 es lo más alto, ¿cuán probable sería que usted use el sistema automatizado nuevamente?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-PR</Language>
+					<Variants>
+						<Variant>Female Puerto Rican</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="6040_CSATMultiQ1" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>If VALID INPUT between 1 and 5 (speech or DTMF)</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6050_CSATMultiQ3" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>If VALID INPUT between 1 and 5 (speech or DTMF)</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6050_CSATMultiQ3" />
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE (second error)</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6080_SurveyMaxErrors" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE (second error)</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6080_SurveyMaxErrors" />
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="6050_CSATMultiQ3" type="Menu" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6050_CSATMultiQ3" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Ok. And last question, how would you rate your overall experience using the system?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments>Caller responded 1-5 to a previous survey question.</CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6050_CSATMultiQ3" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Sorry... On a scale where 1 is lowest and 5 is highest, how would you rate your overall experience using the automated system today?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6050_CSATMultiQ3" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>On a scale where 1 is lowest and 5 is highest, how would you rate your overall experience using the automated system today?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6050_CSATMultiQ3" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Bien. Y la última pregunta, ¿cómo calificaría usted su experiencia en general al usar el sistema?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6050_CSATMultiQ3" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento… En una escala en la que 1 es la clasificación más baja y 5 es la clasificación más alta, ¿cómo calificaría usted su experiencia en general al usar el sistema automatizado el día de hoy?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6050_CSATMultiQ3" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>En una escala en la que 1 es la clasificación más baja y 5 es la clasificación más alta, ¿cómo calificaría usted su experiencia en general al usar el sistema automatizado el día de hoy?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6050_CSATMultiQ3" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Bien. Y una última pregunta, ¿cómo calificaría su experiencia en general usando el sistema?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments>Caller responded 1-5 to a previous survey question.</CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-PR</Language>
+					<Variants>
+						<Variant>Female Puerto Rican</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6050_CSATMultiQ3" type="NM1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Lo siento... En una escala en la que el 1 es lo más bajo y el 5 es lo más alto, ¿cómo calificaría su experiencia en general usando el sistema automatizado en el día de hoy?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-PR</Language>
+					<Variants>
+						<Variant>Female Puerto Rican</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="ON" outdated="false">
+					<AudioFile name="6050_CSATMultiQ3" type="NI1" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>En una escala en la que el 1 es lo más bajo y el 5 es lo más alto, ¿cómo calificaría su experiencia en general usando el sistema automatizado en el día de hoy?</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-PR</Language>
+					<Variants>
+						<Variant>Female Puerto Rican</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="6045_CSATMultiQ2" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>If VALID INPUT between 1 and 5 (speech or DTMF)</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6075_CSATMultiEnd" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>If VALID INPUT between 1 and 5 (speech or DTMF)</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6075_CSATMultiEnd" />
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE (second error)</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6080_SurveyMaxErrors" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+					<ErrorCondition>
+						<ConditionContentList>
+							<Text>FAILURE (second error)</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6080_SurveyMaxErrors" />
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ErrorCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="6075_CSATMultiEnd" type="Presentation" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6075_CSATMultiEnd" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Thanks for your feedback. [600 ms pause]</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+						<Variant>Female Puerto Rican</Variant>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6075_CSATMultiEnd" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Gracias por su opinión. [600 ms pause]</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6075_CSATMultiEnd" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Gracias por su insumo. [600 ms pause]</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-PR</Language>
+					<Variants>
+						<Variant>Female Puerto Rican</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="6050_CSATMultiQ3" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Always&#xD;
+Set </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11545017070688" />
+							<Text> = SurveyComplete</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6099_ExitModule" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Always&#xD;
+Set </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11545017070688" />
+							<Text> = SurveyComplete</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6099_ExitModule" />
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="6080_SurveyMaxErrors" type="Presentation" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes>Caller got max noinput or max nomatch in another dialog.</Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6080_SurveyMaxErrors" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Thanks. [600 ms pause]</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>en-US</Language>
+					<Variants>
+						<Variant>Female English</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6080_SurveyMaxErrors" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Gracias. [600 ms pause]</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-SP</Language>
+					<Variants>
+						<Variant>Female Spanish</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+				<Prompt type="Initial" bargein="OFF" outdated="false">
+					<AudioFile name="6080_SurveyMaxErrors" type="INI" additionalText="" level="" freeText="" />
+					<TextContentList>
+						<Text>Gracias. [600 ms pause]</Text>
+					</TextContentList>
+					<DesignNotes></DesignNotes>
+					<CoachingComments></CoachingComments>
+					<TaskNotes></TaskNotes>
+					<TechnicalNotes></TechnicalNotes>
+					<Styles />
+					<Language>es-PR</Language>
+					<Variants>
+						<Variant>Female Puerto Rican</Variant>
+					</Variants>
+					<Tests />
+				</Prompt>
+			</Prompts>
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="6015_CSATSurveyQ1" />
+					<State ref="6040_CSATMultiQ1" />
+					<State ref="6045_CSATMultiQ2" />
+					<State ref="6050_CSATMultiQ3" />
+					<State ref="6030_CSATSurveyOptIn" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Always&#xD;
+Set </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11545017070688" />
+							<Text> = MaxErrors</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6099_ExitModule" />
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Always&#xD;
+Set </Text>
+							<Reference targetType="DESIGN_PARAMETER" targetId="design_parameter_11545017070688" />
+							<Text> = MaxErrors</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<NextState ref="6099_ExitModule" />
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+		<State name="6099_ExitModule" type="Custom" status="Done">
+			<FunctionalSequences></FunctionalSequences>
+			<Notes></Notes>
+			<TechnicalNotes></TechnicalNotes>
+			<Parameters />
+			<Prompts />
+			<Grammars />
+			<Navigation>
+				<FromStates>
+					<State ref="6000_EligibilityLookup" />
+					<State ref="6080_SurveyMaxErrors" />
+					<State ref="6020_CSATSurveyEnd" />
+					<State ref="6075_CSATMultiEnd" />
+					<State ref="6035_CSATSurveyDecline" />
+				</FromStates>
+				<Conditions>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Return to calling application</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<Language>en-US</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+					<ResponseCondition Confidence="N/A">
+						<ConditionContentList>
+							<Text>Return to calling application</Text>
+						</ConditionContentList>
+						<TaskNotes></TaskNotes>
+						<TechnicalNotes></TechnicalNotes>
+						<Result></Result>
+						<Language>es-PR</Language>
+						<Variants />
+						<Tests />
+					</ResponseCondition>
+				</Conditions>
+				<Tests />
+			</Navigation>
+		</State>
+	</States>
+	<DesignParameters>
+		<DesignParameter id="design_parameter_11545017070688" name="ExitReason" type="OUTPUT" description="SurveyComplete, MaxErrors, ANINotEligible, LookupFailure, SurveyDecline" />
+	</DesignParameters>
+	<VersionNotes>
+		<VersionNote changedStateName="StartHere" user="mboothroyd" date="17.12.2018">
+			<Comment>NLIVR-343 CSAT Survey&#xD;
+New module</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="6000_EligibilityLookup" user="mboothroyd" date="26.12.2018">
+			<Comment>NLIVR-345&#xD;
+Added conditions to check for whether caller should hear just 1 or multiple questions</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="6030_CSATSurveyOptIn" user="mboothroyd" date="26.12.2018">
+			<Comment>NLIVR-345&#xD;
+New state</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="6035_CSATSurveyDecline" user="mboothroyd" date="26.12.2018">
+			<Comment>NLIVR-345&#xD;
+New state</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="6040_CSATMultiQ1" user="mboothroyd" date="26.12.2018">
+			<Comment>NLIVR-345&#xD;
+New state</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="6045_CSATMultiQ2" user="mboothroyd" date="26.12.2018">
+			<Comment>NLIVR-345&#xD;
+New state</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="6050_CSATMultiQ3" user="mboothroyd" date="26.12.2018">
+			<Comment>NLIVR-345&#xD;
+New state</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="6075_CSATMultiEnd" user="mboothroyd" date="26.12.2018">
+			<Comment>NLIVR-345&#xD;
+New state</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="6080_SurveyMaxErrors" user="mboothroyd" date="26.12.2018">
+			<Comment>NLIVR-345&#xD;
+New state</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="6030_CSATSurveyOptIn" user="mboothroyd" date="09.01.2019">
+			<Comment>Corrected prompt text in _INI (added "a" in "I just have a few questions")</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="StartHere" user="mboothroyd" date="24.01.2019">
+			<Comment>NLIVR-84 NL Spanish&#xD;
+Added Spanish in all states</Comment>
+		</VersionNote>
+		<VersionNote changedStateName="6080_SurveyMaxErrors" user="mboothroyd" date="24.01.2019">
+			<Comment>Changed English from "Thanks for your help" to "Thanks" to match RCE and Spanish</Comment>
+		</VersionNote>
+	</VersionNotes>
+</Design>
+
